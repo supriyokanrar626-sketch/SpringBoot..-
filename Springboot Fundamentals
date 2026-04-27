@@ -235,3 +235,127 @@ src/main/resources/
      templates/                ← HTML templates (if using)
 
 ######################### 
+
+When You Run a Spring Boot Application
+When you run your Spring Boot application, several things happen automatically in the background. You don’t have to manually control them.
+
+1. Maven prepares and runs your project
+
+Maven is a project helper tool (similar to npm in Node.js).
+
+It helps by:
+
+Reading a file called pom.xml (this file tells Maven what your project needs)
+Downloading required libraries automatically
+Compiling your Java code
+Running your Spring Boot application
+So instead of doing all this manually, Maven does it for you.
+
+2. Spring Boot starts your application
+
+Spring Boot:
+
+Finds the main class marked with @SpringBootApplication
+Starts the application from there
+Sets up everything your app needs
+Creates the Spring environment (also called Spring Context)
+You don’t need to configure all this yourself.
+
+3. Built-in web support starts automatically
+
+Your Spring Boot app can run in a browser because it includes built-in web support (the built-in web server is called Tomcat).
+You do NOT need to: Install a server, Configure a server
+This happens because of this dependency in pom.xml:
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+This tells Spring Boot: This is a web application and it should run in a browser..
+
+####################
+
+Understand the Code of Your First Spring Boot App ......
+
+Now that you understand the project structure of a Spring Boot application and 
+how it runs using Maven and embedded Tomcat, it’s time tolook at the code.
+
+In this lesson, you’ll understand the actual code of your first Spring Boot app, see where the Hello, From Spring Boot! output comes from, 
+and learn what each file does, step by step..
+
+In your first Spring Boot app, only two files are important:image
+
+DemoApplication.java → starts the application
+HelloController.java → returns “Hello World” in the browser
+
+Let’s understand them one by one.
+
+DemoApplication.java (The Entry Point of a Spring Boot App)
+
+###  CODE   ##########
+
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+        System.out.println("Spring Boot application started!");
+    }
+}
+
+################3
+
+What is this file?
+
+This is the starting point of your Spring Boot application.
+Just like every Java program starts from:
+public static void main(String[] args)
+Every Spring Boot application also starts from this file and this method..
+
+Let’s begin by understanding the important annotation that starts the application.
+
+@SpringBootApplication :
+
+Marks this class as the starting point of a Spring Boot application.
+
+Automatically:
+Configures the application
+Scans all components (like controllers)
+Sets up the embedded server (Tomcat)
+SpringApplication.run(DemoApplication.class, args);
+
+This line starts the entire Spring Boot application
+It:
+Creates the Spring container
+Starts the embedded Tomcat server
+Makes your application ready to handle requests
+HelloController java (Hello World Logic)
+###########  CODE  ####
+
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+
+    @GetMapping("/")
+    public String home() {
+        return "Hello, From Spring Boot!";
+    }
+}
+
+############
+This file is responsible for: What you see in the browser
+
+Don’t worry about @RestController or @GetMapping("/") for now.
+Just focus on understanding how the application starts and returns a response.
+We’ll explain these annotations in detail later.
+
+############################################################3
