@@ -201,3 +201,37 @@ public class HelloController {
 
 ############################
 
+Understanding Your Spring Boot Project Structure
+Now that you have created your first Spring Boot app, let’s slow down and understand what exactly is inside the project and 
+how Spring Boot works behind the scenes.
+
+Project Structure Overview
+
+workspace/
+ └── demo/
+      └── src/
+           └── main/
+                ├── java/
+                └── resources/
+
+Let’s break this Project Structure :
+
+src/main/java → Your Application Code
+This is where all your Java code lives. Inside it, you will find:
+
+src/main/java/com/example/demo/
+     HelloController.java   ← your controllers
+     DemoApplication.java   ← main class
+
+Think of this folder as the “brain” of your application.
+Your controllers, services, repositories, configuration files — everything goes here.
+
+src/main/resources → Your App Settings + Templates + Static Files
+Contains important resources used by your application:
+
+src/main/resources/
+     application.properties    ← app settings (port, DB config, etc.)
+     static/                   ← CSS, JS, images for web apps
+     templates/                ← HTML templates (if using)
+
+######################### 
