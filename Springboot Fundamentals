@@ -101,3 +101,53 @@ You just unbox it, plug it in, and go.
 
 ################################
 
+Role of Spring
+Spring helps developers mainly by: 
+Answer  =  Managing Java objects and their dependencies...
+Spring mainly helps by creating and managing Java objects and injecting their dependencies automatically, so developers don’t have to manually connect everything.
+
+##################
+
+Role of Spring Boot
+What is Spring Boot mainly used for?
+Anser = Making Spring applications easier and faster to build...
+Spring Boot is used to make Spring applications faster and easier to build by reducing setup and configuration work.
+
+###########3
+
+Spring Initializr Setup
+By now, you know:
+
+Spring → helps manage your Java objects and their dependencies
+Spring Boot → simplifies Spring by handling setup and configuration automatically.
+At this point, you might be thinking :
+“Okay… but how do I actually start a Spring Boot project?”
+
+That’s where Spring Initializr comes in.
+
+What is Spring Initializr :
+Spring Initializr is a simple website that generates a ready-made Spring Boot project for you.
+You don’t have to:
+
+Create folders yourself
+Configure files manually
+Set up everything from scratch
+It does the hard work for you.
+How to Set Up a Project Using Spring Initializr
+
+Open Spring Initializr in your browser: https://start.spring.io/
+Select:
+Project: Maven
+Language: Java
+Packaging: Jar
+Java Version: 17
+Add dependency: Spring Web
+Click Generate to download the project.
+Extract the ZIP and open it in your IDE. Your setup is done!
+Take a look at the visualizer given here to see how all the project options are displayed
+
+In this course, your Spring Boot project setup is already done in your lab environment.
+This explanation of Spring Initializr is just to help you understand how projects are created in the real world — no manual setup needed.
+
+##########################
+
