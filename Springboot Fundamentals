@@ -104,7 +104,8 @@ You just unbox it, plug it in, and go.
 Role of Spring
 Spring helps developers mainly by: 
 Answer  =  Managing Java objects and their dependencies...
-Spring mainly helps by creating and managing Java objects and injecting their dependencies automatically, so developers don’t have to manually connect everything.
+Spring mainly helps by creating and managing Java objects and injecting their dependencies automatically, 
+so developers don’t have to manually connect everything.
 
 ##################
 
@@ -359,3 +360,25 @@ Just focus on understanding how the application starts and returns a response.
 We’ll explain these annotations in detail later.
 
 ############################################################3
+
+MCQ 1 :
+What is the role of @SpringBootApplication? 
+Ans = Marks a class as main Spring Boot entry point ..
+@SpringBootApplication marks the main class of a Spring Boot application.
+It tells Spring Boot to start the application, enable auto-configuration, and scan components automatically..
+
+######333
+
+MCQ 2 :
+Which folder contains Java source code?
+Ans = src/main/java
+src/main/java contains all the Java source code of the Spring Boot application, including controllers, services, and the main class..
+
+###########
+
+MCQ 3 :
+What is Embedded Tomcat? 
+Answer = Built-in web server in Spring Boot...
+Embedded Tomcat is a built-in web server that comes with Spring Boot, so you can run the application without installing any external server..
+
+##################### 
