@@ -112,3 +112,42 @@ backend received the request
 json data output
 
 ###############
+
+Spring Boot API Demonstration - Sending JSON
+Look at the given code in your IDE. You can see that the getUser() method returns some data in the form of a Map.
+Don’t focus on @GetMapping or @RestController for now.
+Let’s first understand what JSON is and how APIs use it.
+
+When you run this API and access the endpoint, the output looks like this:
+
+{
+  "id": "1",
+  "name": "Leanne Graham",
+  "email": "leanne@example.com"
+}
+This is JSON, a standard format APIs use to exchange data between servers and clients (like web browsers, mobile apps, or other services).
+
+What is JSON?
+
+JSON = JavaScript Object Notation
+A lightweight, human-readable format for data
+Structured with key-value pairs, like a Java Map
+Here, In JSON output :
+"id", "name", "email" → keys
+"1", "Leanne Graham", "leanne@example.com" → values
+Values can also be numbers, arrays, or nested objects
+How APIs Use JSON
+
+Sending Data (Response)
+API sends JSON to clients (browser, app, etc.)
+Example: our / endpoint returns the user info in JSON
+Receiving Data (Request)
+APIs can also accept JSON from clients
+Example client request:
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com"
+}
+The API will read this JSON and perform actions, like saving the data to a database.
+We’ll cover this in detail next.
+
