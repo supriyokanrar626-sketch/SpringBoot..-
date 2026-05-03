@@ -63,3 +63,31 @@ Which best describes what an API does?
 ANSWER = Takes a request and returns a response
 An API works by receiving a request from one application and sending back a response with data. It does not store data permanently or
 create user interfaces — it only handles communication between applications.
+
+#################################
+
+How the Request - Response flow works..
+
+You’ve already seen how a restaurant works — you place an order, the waiter communicates with the kitchen, and the food comes back to you.
+Now let’s use that same example to understand how requests and responses work in applications.
+
+When you place an order in a restaurant:
+
+You place the order
+The waiter takes it to the kitchen
+The chef prepares the food
+The waiter brings the food back to you
+The same idea applies to applications.
+
+The app sends a request
+The API forwards the request to the backend
+The backend processes it
+The API sends back a response
+image
+Key takeaway
+Every time you see data on your screen, this request → response flow has already happened.
+The API is the middle layer that makes this communication possible.
+
+This is the exact flow you will implement when you start building APIs using Spring Boot in the next section.
+
+######################
