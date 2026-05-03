@@ -61,3 +61,5 @@ Test Your Understanding
 Which best describes what an API does?
 
 ANSWER = Takes a request and returns a response
+An API works by receiving a request from one application and sending back a response with data. It does not store data permanently or
+create user interfaces — it only handles communication between applications.
