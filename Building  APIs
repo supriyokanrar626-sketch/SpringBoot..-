@@ -7,6 +7,7 @@ How does data actually come to your app?
 You click buttons every day.
 You see data on screens all the time.
 But how does that data arrive there?
+
 Let’s find out by using a demo API first.
 
 Open your browser and type this URL:
@@ -33,3 +34,22 @@ The browser sent a request
 Some server sent back data
 The data came in JSON format
 This data response is the result of an API call.
+
+#######################################3
+
+What Is an API (Application Programming Interface)..
+
+Imagine you go to a restaurant.
+
+You are the customer (User/Frontend)
+The chef(kitchen) prepares the food (backend/server)
+The waiter takes your order to the chef and brings the food back to you (the API)image
+You never walk into the kitchen or talk to the chef directly. The waiter handles all communication between you and the kitchen.
+
+In an application, an API works like the waiter in a restaurant.
+
+Just like you don’t go into the kitchen or talk to the chef directly, an app or user never talks to the backend or database directly.
+The API stands for Application Programming Interface that takes the request from the app, passes it to the backend (the chef), and then brings
+the response back.
+
+In simple words, an API is a way for one application to communicate with another application.
