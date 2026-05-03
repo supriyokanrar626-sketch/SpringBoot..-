@@ -194,3 +194,35 @@ public class DemoApplication {
         System.out.println("Spring Boot application started!");
     }
 }
+
+#############################3
+
+Spring Boot API Demonstration - Receiving JSON
+APIs are not just for sending data; they can also receive data from clients.
+
+In this lab, your API can accept JSON data, which is a structured way to send information over the internet.
+Example client request (JSON):
+
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com"
+}
+Give your name and email in JSON format, Click on Send JSON, You'll get Response.
+
+The client (like a web page, Postman, or another application) sends this data to your API.
+The API reads the JSON automatically and converts it into a Java object behind the scenes.
+
+Don’t worry about the Java code here.
+The key is to understand the data flow:
+
+Client → JSON → Spring Boot API → Java Object → Response
+Right now, your API is configured to:
+
+Read the JSON sent by the client.
+Convert it to a Java object (UserRequest).
+Print it in the console so you can see the data arrived successfully.
+Return a confirmation message to the client (Response).
+Later in the course, this object can be used to save data to a database or perform other actions.
+
+#############################  CODE HERE ###########3
+
