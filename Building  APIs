@@ -43,7 +43,8 @@ Imagine you go to a restaurant.
 
 You are the customer (User/Frontend)
 The chef(kitchen) prepares the food (backend/server)
-The waiter takes your order to the chef and brings the food back to you (the API)image
+The waiter takes your order to the chef and brings the food back to you (the API)..
+
 You never walk into the kitchen or talk to the chef directly. The waiter handles all communication between you and the kitchen.
 
 In an application, an API works like the waiter in a restaurant.
@@ -53,3 +54,6 @@ The API stands for Application Programming Interface that takes the request from
 the response back.
 
 In simple words, an API is a way for one application to communicate with another application.
+
+####################################
+
