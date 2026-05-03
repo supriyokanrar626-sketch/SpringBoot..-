@@ -262,3 +262,9 @@ public class DemoApplication {
 
 ################################
 
+Purpose of JSON in APIs
+What is the main purpose of JSON in APIs?
+
+ANSWER = To send structured data between client and server..
+JSON is a lightweight format used to organize and exchange data between a client (like a web app) and a server.
+It allows APIs to send and receive data in a structured, easy-to-read way, making communication between different systems simple.
