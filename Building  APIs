@@ -91,3 +91,24 @@ The API is the middle layer that makes this communication possible.
 This is the exact flow you will implement when you start building APIs using Spring Boot in the next section.
 
 ######################
+
+Answer In Short
+Step 1: Use an API in your browser
+Open your browser and visit this URL:
+
+https://jsonplaceholder.typicode.com/posts/1
+Observe the response. -> This is an API response.
+
+Step 2: Answer these questions
+
+Who sent the request?
+
+Who received the request?
+
+What did the server send back?
+
+ANSWER = user sent the request
+backend received the request
+json data output
+
+###############
