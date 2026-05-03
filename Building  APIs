@@ -268,3 +268,12 @@ What is the main purpose of JSON in APIs?
 ANSWER = To send structured data between client and server..
 JSON is a lightweight format used to organize and exchange data between a client (like a web app) and a server.
 It allows APIs to send and receive data in a structured, easy-to-read way, making communication between different systems simple.
+
+###########################
+
+Identifying Valid JSON
+Which of the following is valid JSON?
+
+ANSWER  =  { "name": "Alice", "age": 25 }
+In JSON, all keys must be in double quotes ("key") and values are separated by colons (:)
+
