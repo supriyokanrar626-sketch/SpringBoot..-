@@ -1,1 +1,35 @@
+Introduction to API..
 
+Before we dive into building APIs… Have you ever thought about this?
+
+How does data actually come to your app?
+
+You click buttons every day.
+You see data on screens all the time.
+But how does that data arrive there?
+Let’s find out by using a demo API first.
+
+Open your browser and type this URL:
+
+https://jsonplaceholder.typicode.com/users/1
+Press Enter.
+You will see something like this:
+
+{
+  "id": 1,
+  "name": "Leanne Graham",
+  "email": "leanne@example.com"
+}
+This format is called JSON.
+
+You just made an API call.
+There was no login page and no buttons or screens — just data returned directly by a server.
+This is exactly how an API works.
+
+What just happened?
+
+You typed a URL
+The browser sent a request
+Some server sent back data
+The data came in JSON format
+This data response is the result of an API call.
