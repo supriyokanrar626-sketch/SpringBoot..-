@@ -113,7 +113,8 @@ json data output
 
 ###############
 
-Spring Boot API Demonstration - Sending JSON
+Spring Boot API Demonstration - Sending JSON..
+
 Look at the given code in your IDE. You can see that the getUser() method returns some data in the form of a Map.
 Don’t focus on @GetMapping or @RestController for now.
 Let’s first understand what JSON is and how APIs use it.
@@ -136,6 +137,7 @@ Here, In JSON output :
 "id", "name", "email" → keys
 "1", "Leanne Graham", "leanne@example.com" → values
 Values can also be numbers, arrays, or nested objects
+
 How APIs Use JSON
 
 Sending Data (Response)
@@ -143,6 +145,7 @@ API sends JSON to clients (browser, app, etc.)
 Example: our / endpoint returns the user info in JSON
 Receiving Data (Request)
 APIs can also accept JSON from clients
+
 Example client request:
 {
   "name": "Jane Doe",
@@ -150,4 +153,31 @@ Example client request:
 }
 The API will read this JSON and perform actions, like saving the data to a database.
 We’ll cover this in detail next.
+
+##########################
+
+UserController.java
+
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
+
+@RestController
+public class UserController {
+
+    @GetMapping("/")
+    public Map<String, String> getUser() {
+        return Map.of(
+                "id", "1",
+                "name", "Leanne Graham",
+                "email", "leanne@example.com"
+        );
+    }
+}
+##################################
+
+DemoApplication.java
 
