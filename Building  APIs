@@ -225,4 +225,40 @@ Return a confirmation message to the client (Response).
 Later in the course, this object can be used to save data to a database or perform other actions.
 
 #############################  CODE HERE ###########3
+UserController.java
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+public class UserController {
+
+    @PostMapping("/addUser")
+    public String addUser(@RequestBody UserRequest userRequest) {
+        // Print received data in console
+        System.out.println("Received user: " + userRequest.getName() + ", " + userRequest.getEmail());
+        // Return confirmation to client
+        return "User " + userRequest.getName() + " added successfully!";
+    }
+
+}
+
+#########################3
+DemoApplication.java
+
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DemoApplication { 
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+        System.out.println("Spring Boot application started!");
+    }
+}
+
+################################
 
