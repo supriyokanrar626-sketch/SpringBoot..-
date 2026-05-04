@@ -395,4 +395,26 @@ In the next section, you will practice creating GET APIs on your own.
 
 ###################################
 
+Practice Problem - Personalized Greeting API...
+Instructions:
 
+Complete your code first.
+Click on "Run" to start the server and make sure it runs correctly.
+If you make any changes to the code after running, you must run the server again.
+Only after running the server with the latest changes, your submission will reflect the updated solution.
+Do not submit if the server is not running; otherwise, your solution will fail.
+Task:
+Complete the code of a Spring Boot REST controller that provides personalized greetings based on the user’s name and role.
+
+Requirements:
+
+Base URL: /api/welcome
+Endpoints:
+GET /api/welcome/user?name=YourName → Returns "Welcome, YourName!"
+GET /api/welcome/admin?name=YourName → Returns "Welcome Admin, YourName!"
+Use query parameters to pass the name.
+Make sure the controller is in com.example.demo.controller and annotated properly with @RestController and @RequestMapping("/api/welcome").
+Expected Output:
+
+/api/welcome/user?name=Alice → "Welcome, Alice!"
+/api/welcome/admin?name=Alice → "Welcome Admin, Alice!"
