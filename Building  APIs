@@ -278,6 +278,7 @@ ANSWER  =  { "name": "Alice", "age": 25 }
 In JSON, all keys must be in double quotes ("key") and values are separated by colons (:)
 
 #####################################  CONTROLLORS...
+
 Getting Started with Controllers
 Given code in IDE is a simple Spring Boot controller that returns greeting messages.
 
@@ -355,3 +356,43 @@ public class DemoApplication {
     }
 }
 ##############3
+
+Understanding the GreetingController Code
+Let’s now understand the controller code you used in the previous lab and see how it handles incoming requests.
+
+GreetingController.java
+
+@RestController
+@RequestMapping("/api/greet")
+public class GreetingController {
+What This Class Does
+
+GreetingController is a controller class
+It is responsible for handling HTTP requests
+All API logic for greeting messages is written inside this class
+This is where Spring Boot looks when a request comes in..
+
+@RestController
+Tells Spring Boot this class handles API requests and sends responses directly (usually in JSON format), instead of rendering a web page..
+
+@RequestMapping("/api/greet")
+Tells Spring Boot to send all requests starting with /api/greet to this class.
+
+Handling a Simple GET Request
+Code :
+
+@GetMapping("/hello")
+public String helloWorld() {
+    return "Hello, World!";
+}
+@GetMapping("/hello")
+Runs this method when /api/greet/hello is called.
+
+In this lab, you learned how to create a GET API using Spring Boot.
+You used @GetMapping to map URLs to methods, returned responses from the API, and tested the endpoints.
+
+In the next section, you will practice creating GET APIs on your own.
+
+###################################
+
+
