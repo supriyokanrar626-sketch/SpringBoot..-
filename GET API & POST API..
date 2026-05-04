@@ -1,1 +1,57 @@
+Building Your First GET API..
 
+Imagine you are building an app that manages users. Your app needs to send user information to other parts of the app or even other applications.
+
+In this demo, we created a UserController with several endpoints to:
+
+Get individual users (Alice, Bob, Charlie)
+Get a list of all users
+This is exactly how real-world APIs work—you request data from a URL, and the server sends it back as JSON.
+
+Before we begin :
+
+Run the application.
+The API Tester will open automatically.
+Enter below URL one by one -> Click on "Call API" and Observe the Resopnse
+/api/users/alice
+/api/users/bob
+/api/users/charlie
+/api/users/all
+Let’s break down how this code works step by step.
+
+How the Code Works
+
+1. Class-level annotations
+
+@RestController
+@RequestMapping("/api/users")
+@RestController → Marks the class as a controller for APIs.
+@RequestMapping("/api/users") → Sets a base URL for all APIs in this controller.
+Every method in this class will start with /api/users.
+2. Single user endpoints
+
+@GetMapping("/alice")
+@GetMapping("/bob")
+@GetMapping("/charlie")
+@GetMapping maps a specific URL → method.
+
+Examples:
+
+/api/users/alice → calls getAlice() → returns Alice’s info
+/api/users/bob → calls getBob() → returns Bob’s info
+/api/users/charlie → calls getCharlie() → returns Charlie’s info
+3. List of users endpoint
+
+@GetMapping("/all")
+public List<User> getAllUsers()
+Returns a list of User objects.
+Spring Boot automatically converts Java objects → JSON array.
+Example URL: /api/users/all → Returns:
+
+[
+  { "name": "Alice", "email": "alice@example.com" },
+  { "name": "Bob", "email": "bob@example.com" },
+  { "name": "Charlie", "email": "charlie@example.com" }
+]
+
+#########################################
