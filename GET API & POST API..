@@ -177,3 +177,6 @@ ANSWER = @GetMapping
 The other annotations are used for different operations like creating, updating, or deleting data.
 
 ##############################
+
+GET API - Identify Response Format
+What is the default response format of a GET API when using @RestController?
