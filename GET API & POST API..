@@ -185,3 +185,98 @@ ANSWER = JSON
 @RestController automatically converts Java objects into JSON responses.
 
 ##################################
+
+                                  ..................  NOW   POST API ...........................
+
+##############################
+Building Your First POST API..
+
+Imagine you are building an app to manage users. You want to let clients (frontend apps, Postman, etc.) add new users to your system.
+
+In this demo, we created a UserController with an endpoint to:
+
+Add a single user
+This is exactly how real-world APIs work — you send JSON to a URL, the server receives it, stores it, and responds with a confirmation message.
+
+Note: There is also a GET endpoint available to see which users have been added for your better understanding, but we will not focus on GET here.
+
+Before we begin :
+
+Run the application.
+The API Tester will open automatically.
+Send JSON to the following URLs and observe the response:
+Example Request
+
+POST – Add single user
+POST : /users
+{
+  "name": "David",
+  "email": "david@example.com"
+}
+Response:
+
+"User added successfully!"
+How the Code Works
+
+Single user POST endpoint
+@PostMapping
+public String addUser(@RequestBody User user) {
+    users.add(user);
+    return "User added successfully!";
+}
+@PostMapping → Maps the URL /users to this method.
+@RequestBody → Converts incoming JSON into a Java User object automatically.
+users.add(user) → Adds the user to the in-memory list.
+Return message → Sends a confirmation string back to the client.
+Key Points
+
+POST APIs → Used to send data to the server.
+@RequestBody → Automatically converts JSON → Java objects.
+We'll see @RequestBody later in detail.
+For Testing :
+After sending your POST request, you can select GET and type /users in your API tester* to see whether your user has been added successfully.
+
+#######################################
+
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+    // In-memory list to store users
+    private List<User> users = new ArrayList<>();
+
+    // GET API - fetch all users
+    @GetMapping
+    public List<User> getUsers() {
+        return users;
+    }
+
+    // POST API - add a new user
+    @PostMapping
+    public String addUser(@RequestBody User user) {
+        users.add(user);
+        return "User added successfully!";
+    }
+}
+
+/* -------- User Class (inside same file) -------- */
+class User {
+    private String name;
+    private String email;
+
+    // Getters and Setters
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+}
+
+#############################################3
+
