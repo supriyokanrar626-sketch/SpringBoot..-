@@ -172,4 +172,8 @@ class Fruit {
 Guess the Output
 Which annotation is used in Spring Boot to create a GET API endpoint?
 
-ANSWER = 
+ANSWER = @GetMapping
+@GetMapping is used in Spring Boot to create GET API endpoints, which are meant to retrieve data from the server.
+The other annotations are used for different operations like creating, updating, or deleting data.
+
+##############################
