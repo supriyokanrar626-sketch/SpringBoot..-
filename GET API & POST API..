@@ -372,6 +372,13 @@ Which annotation is used in Spring Boot to create a POST API endpoint?
 
 ANSWER  =  @PostMapping
 @PostMapping is used to handle HTTP POST requests, usually to send or create data.
+
 #############################
 
+Identify the Purpose
+What is the main purpose of a POST API?
 
+ANSWER  =  Create or submit data
+POST APIs are mainly used to send data to the server for creation or processing.
+
+####################################
