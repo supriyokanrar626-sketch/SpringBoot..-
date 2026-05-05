@@ -370,4 +370,8 @@ class Todo {
 Guess the Output
 Which annotation is used in Spring Boot to create a POST API endpoint?
 
-ANSWER  =  
+ANSWER  =  @PostMapping
+@PostMapping is used to handle HTTP POST requests, usually to send or create data.
+#############################
+
+
