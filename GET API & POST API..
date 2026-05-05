@@ -180,3 +180,8 @@ The other annotations are used for different operations like creating, updating,
 
 GET API - Identify Response Format
 What is the default response format of a GET API when using @RestController?
+
+ANSWER = JSON
+@RestController automatically converts Java objects into JSON responses.
+
+##################################
