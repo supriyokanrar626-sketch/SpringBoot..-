@@ -55,3 +55,58 @@ Example URL: /api/users/all → Returns:
 ]
 
 #########################################
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.util.Arrays;
+
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    // GET /api/users/alice
+    @GetMapping("/alice")
+    public User getAlice() {
+        return new User("Alice", "alice@example.com");
+    }
+
+    // GET /api/users/bob
+    @GetMapping("/bob")
+    public User getBob() {
+        return new User("Bob", "bob@example.com");
+    }
+
+    // GET /api/users/charlie
+    @GetMapping("/charlie")
+    public User getCharlie() {
+        return new User("Charlie", "charlie@example.com");
+    }
+
+    // GET /api/users/all
+    @GetMapping("/all")
+    public List<User> getAllUsers() {
+        return Arrays.asList(
+            new User("Alice", "alice@example.com"),
+            new User("Bob", "bob@example.com"),
+            new User("Charlie", "charlie@example.com")
+        );
+    }
+}
+
+// User class
+class User {
+    private String name;
+    private String email;
+
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    public String getName() { return name; }
+    public String getEmail() { return email; }
+}
+
+###########################################
