@@ -166,3 +166,10 @@ class Fruit {
     public String getName() { return name; }
     public String getTaste() { return taste; }
 }
+
+################################
+
+Guess the Output
+Which annotation is used in Spring Boot to create a GET API endpoint?
+
+ANSWER = 
