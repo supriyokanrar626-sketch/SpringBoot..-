@@ -382,3 +382,34 @@ ANSWER  =  Create or submit data
 POST APIs are mainly used to send data to the server for creation or processing.
 
 ####################################
+
+       THEORY ......
+###########################
+
+GET vs POST....
+
+Till now, you have worked with both GET and POST APIs in Spring Boot. This section is a quick and clear recap to reinforce what you already practiced.
+
+Now let’s clearly understand how they are different and when to use which.
+
+What is the purpose?image
+
+How is data sent?
+
+GET API
+
+Data is sent as part of the request URL
+The client requests information using a URL
+POST API
+
+Data is sent in the request body
+Usually in JSON format
+Spring Boot Annotations
+
+GET   =	 @GetMapping
+POST  =	 @PostMapping
+Simple rule to remember
+
+If you are getting data → use GET
+If you are sending data → use POST
+Now that you know how requests work, let’s learn how Spring Boot receives input data.
