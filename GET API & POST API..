@@ -110,3 +110,59 @@ class User {
 }
 
 ###########################################
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.util.Arrays;
+
+@RestController
+@RequestMapping("/api/fruits")
+public class FruitController {
+
+    // TODO 1: Create an endpoint to return Apple
+    @GetMapping("/apple")  
+    public Fruit getApple() {
+        // Return a Fruit object with name "Apple" and taste "Sweet"
+        return new Fruit("Apple", "Sweet"); 
+    }
+
+    // TODO 2: Create an endpoint to return Banana
+    @GetMapping("/banana")  
+    public Fruit getBanana() {
+        // Return a Fruit object with name "Banana" and taste "Sweet"
+        return new Fruit("Banana", "Sweet");
+    }
+
+    // TODO 3: Create an endpoint to return Lemon
+    @GetMapping("/lemon")  
+    public Fruit getLemon() {
+        // Return a Fruit object with name "Lemon" and taste "Sour"
+        return new Fruit("Lemon", "Sour");
+    }
+
+    // TODO 4: Create an endpoint to return a list of all fruits
+    @GetMapping("/all") 
+    public List<Fruit> getAllFruits() {
+        return Arrays.asList(
+            new Fruit("Apple", "Sweet"),
+            new Fruit("Banana", "Sweet"),
+            new Fruit("Lemon", "Sour")
+        );
+    }
+}
+
+// Fruit class (already completed)
+class Fruit {
+    private String name;
+    private String taste;
+
+    public Fruit(String name, String taste) {
+        this.name = name;
+        this.taste = taste;
+    }
+
+    public String getName() { return name; }
+    public String getTaste() { return taste; }
+}
