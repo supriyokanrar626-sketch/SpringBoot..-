@@ -436,4 +436,8 @@ Question:
 
 Which HTTP method should you use — GET or POST? Why?
 
-ANSWER  =  
+ANSWER  =  GET
+get api only read data , don't change anything
+
+#################################
+
