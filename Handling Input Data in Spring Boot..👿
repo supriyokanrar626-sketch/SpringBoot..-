@@ -232,3 +232,43 @@ ANSWER  =  /api/user/5
 
 ########################3
 
+RequestParam
+@RequestParam is used when input data is sent as query parameters in the URL.
+The value is written after the ? symbol in the URL and Spring Boot reads it and passes it to the method.
+
+When do we use it?
+Use @RequestParam when:
+
+The input value is NOT part of the main URL path
+The value is often optional
+The data is used for filtering, searching, or sorting
+The URL represents an action, NOT a specific resource
+Example URL:
+
+/api/users?role=admin
+Here, role is an input value passed as a query parameter
+It Extracts values from query parameters
+Passes them to the controller method
+Controller Code (Demo)
+
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @GetMapping
+    public String getUsersByRole(@RequestParam String role) {
+        return "Fetching users with role: " + role;
+    }
+}
+What’s happening here?
+
+?role=admin → query parameter in the URL
+@RequestParam String role → captures the value from the URL
+Calling /api/users?role=admin → role becomes admin
+use cases:
+
+Searching users by name or role
+Filtering results
+Sorting data
+
+##########################################
