@@ -215,3 +215,9 @@ Guess the Output
 Which annotation is used in Spring Boot to extract the value from the URL in a GET API?
 
 ANSWER = @PathVariable
+@PathVariable is used to read a value directly from the URL path and pass it to the controller method.
+
+Example:   /api/book/10
+Here, 10 comes from the URL itself and is extracted using @PathVariable.
+
+#############################
