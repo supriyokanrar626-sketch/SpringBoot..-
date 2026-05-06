@@ -448,3 +448,8 @@ public int getTextLength(@RequestParam String text) {
 }
 Which URL will correctly call the above API?
 
+ANSWER  =  /length?text=hello
+The API uses @RequestParam, so the value must be passed as a key=value pair after ? in the URL.
+/length?text=hello correctly sends hello as the value of text.
+
+#####################################3
