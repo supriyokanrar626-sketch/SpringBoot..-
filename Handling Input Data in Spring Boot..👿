@@ -453,3 +453,51 @@ The API uses @RequestParam, so the value must be passed as a key=value pair afte
 /length?text=hello correctly sends hello as the value of text.
 
 #####################################3
+
+RequestBody
+@RequestBody is used when input data is sent inside the request body (usually as JSON).
+Spring Boot reads the request body, converts the JSON into a Java object, and passes it to the controller method.
+
+When do we use it?
+Use @RequestBody when:
+
+You are sending complex data (objects, multiple fields)
+Data is coming from a POST / PUT request
+Input is not suitable for the URL
+You want to send data securely and cleanly
+Example Request Body (JSON):
+
+{
+  "name": "Alice",
+  "email": "alice@example.com"
+}
+This data is sent inside the body, not in the URL.
+
+What does it do?
+
+Reads data from the HTTP request body
+Converts JSON → Java Object
+Passes the object to the controller method
+Controller Code (Demo)
+
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @PostMapping
+    public String addUser(@RequestBody User user) {
+        return "User added: " + user.getName();
+    }
+}
+What’s happening here?
+
+@RequestBody User user → captures JSON from request body
+JSON fields are mapped to the User class
+Spring Boot handles conversion automatically
+Common use cases:
+
+POST & PUT HTTP methods - commonly used with @RequestBody
+Creating a new user
+Submitting forms
+Sending login or registration data
+Updating records with multiple fields
