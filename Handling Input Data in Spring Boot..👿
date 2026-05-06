@@ -440,3 +440,11 @@ ANSWER  =  Extracting values from query parameters in a GET request
 @RequestParam is used to read values sent as query parameters in the URL of a request (commonly in GET requests)
 
 ###############################
+
+Map the Correct URL
+@GetMapping("/length")
+public int getTextLength(@RequestParam String text) {
+    return text.length();
+}
+Which URL will correctly call the above API?
+
