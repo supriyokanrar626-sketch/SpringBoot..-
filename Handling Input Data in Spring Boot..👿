@@ -139,3 +139,72 @@ public class UserController {
 
 ##################################
 
+Practice Problem - Use PathVariable
+Instructions:
+
+Complete your code first.
+Click on "Run" to start the server and make sure it runs correctly.
+If you make any changes to the code after running, you must run the server again.
+Only after running the server with the latest changes, your submission will reflect the updated solution.
+Do not submit if the server is not running; otherwise, your solution will fail.
+Goal : Understand how to use @PathVariable to fetch data based on values passed in the URL.
+
+Available Endpoints
+The following endpoints are already present in the application:
+
+Get all products
+GET /api/products
+This API is already completed and working.
+
+Get product by ID
+GET /api/products/{id}
+This API is incomplete and needs to be implemented.
+
+Your Task :
+
+Complete the API that fetches a product by ID using @PathVariable.
+The API should return the correct product when a valid ID is provided.
+It should return "Product not found" when the ID is invalid.
+
+################################3
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
+
+    // In-memory list of demo products
+    private List<String> products = new ArrayList<>();
+
+    // Constructor to add demo products
+    public ProductController() {
+        products.add("Laptop");
+        products.add("Mobile");
+        products.add("Headphones");
+    }
+
+    // Get all products
+    @GetMapping
+    public List<String> getAllProducts() {
+        return products;
+    }
+
+    // Get product by ID
+    @GetMapping("/{id}")
+    public String getProductById(@PathVariable int id) {
+        if (id < 0 || id >= products.size()){
+        // Write your code here
+           return "Product not found";
+        }
+        return products.get(id);
+    }
+}
