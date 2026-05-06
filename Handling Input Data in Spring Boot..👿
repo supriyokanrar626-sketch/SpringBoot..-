@@ -22,3 +22,45 @@ used when data comes from the request body (JSON)
 Let’s see when and why to use each of these annotations — one by one.
 
 ##################################
+
+PathVariable
+@PathVariable is used when input data is part of the URL itself.
+The value is written directly in the URL path and Spring Boot extracts it and passes it to the method.
+
+When do we use it?
+Use @PathVariable when:
+
+You want to identify a specific resource
+The value is mandatory
+The URL clearly represents what you are accessing
+
+Example URL:
+
+/api/users/101
+Here, 101 is a input value passed directly in the URL.
+It Extracts values from the URL
+Passes them to the controller method
+
+Controller Code (Demo)
+
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @GetMapping("/{id}")
+    public String getUserById(@PathVariable int id) {
+        return "Fetching user with id: " + id;
+    }
+}
+What’s happening here?
+
+{id} → placeholder in the URL
+@PathVariable int id → captures the value from the URL
+Calling /api/users/101 → id becomes 101
+
+Common use cases:
+
+Fetching a user by ID
+Deleting or updating a specific record
+
+#############################
