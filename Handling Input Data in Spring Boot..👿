@@ -1,1 +1,24 @@
+Handling Input Data in Spring Boot..
 
+Now that you have practiced GET and POST APIs, you know how a client can call an API to fetch or send data.
+But in real applications, APIs don’t work alone — they also need to accept input data from the client.
+
+This input data can come in different ways, such as:
+
+Values inside the URL
+Values sent as query parameters
+Data sent as JSON in the request body
+To handle these different inputs, Spring Boot provides three important annotations:
+
+@PathVariable –
+used when data comes from the URL path
+
+@RequestParam –
+used when data comes from query parameters
+
+@RequestBody –
+used when data comes from the request body (JSON)
+
+Let’s see when and why to use each of these annotations — one by one.
+
+##################################
