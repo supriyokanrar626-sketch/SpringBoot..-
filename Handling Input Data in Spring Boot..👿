@@ -227,4 +227,8 @@ Which URL correctly matches a GET API defined as:
 
 @GetMapping("/api/user/{id}")
 
-ANSWER  =  
+ANSWER  =  /api/user/5
+{id} is part of the URL path, so the value must be passed directly in the URL
+
+########################3
+
