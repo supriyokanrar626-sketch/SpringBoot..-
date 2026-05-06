@@ -398,6 +398,9 @@ How is data sent?
 
 GET API
 
+Used to fetch data from Backend..
+Only reads data..
+Does not change anything on the server...
 Data is sent as part of the request URL
 The client requests information using a URL
 POST API
