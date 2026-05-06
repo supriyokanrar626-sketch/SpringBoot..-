@@ -208,3 +208,10 @@ public class ProductController {
         return products.get(id);
     }
 }
+
+##############################
+
+Guess the Output
+Which annotation is used in Spring Boot to extract the value from the URL in a GET API?
+
+ANSWER = @PathVariable
