@@ -406,6 +406,7 @@ Data is sent as part of the request URL
 The client requests information using a URL
 
            POST API
+
 Used to send data to the Backend..
 Used to create or submit data..
 Can change data on the server..
@@ -421,3 +422,18 @@ Simple rule to remember
 If you are getting data → use GET
 If you are sending data → use POST
 Now that you know how requests work, let’s learn how Spring Boot receives input data.
+
+###############################
+
+Answer In Short
+Scenario : Fetching Data
+
+You are building a backend API for an application that manages users. A frontend application (such as a web or mobile app) needs to display a list of all users on the screen.
+
+The frontend sends a request to the server only to read existing data.
+
+Question:
+
+Which HTTP method should you use — GET or POST? Why?
+
+ANSWER  =  
