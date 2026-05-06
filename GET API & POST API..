@@ -396,14 +396,19 @@ What is the purpose?image
 
 How is data sent?
 
-GET API
+          GET API
 
 Used to fetch data from Backend..
 Only reads data..
 Does not change anything on the server...
+
 Data is sent as part of the request URL
 The client requests information using a URL
-POST API
+
+           POST API
+Used to send data to the Backend..
+Used to create or submit data..
+Can change data on the server..
 
 Data is sent in the request body
 Usually in JSON format
