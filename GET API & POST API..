@@ -441,3 +441,21 @@ get api only read data , don't change anything
 
 #################################
 
+Answer In Short
+Scenario : Creating Data
+
+You are building a user registration feature for an application. A frontend screen contains a registration form where users enter details such as name, email, and password.
+
+When the user clicks the Register button, the frontend sends these details to the backend server. The backend’s responsibility is to process the received data and create a new user record in the system
+
+Each time the request is sent, a new user should be created.
+
+Question:
+
+Which HTTP method is more appropriate — GET or POST? Why?
+
+
+ANSWER  =  post
+
+each time data is modified
+
