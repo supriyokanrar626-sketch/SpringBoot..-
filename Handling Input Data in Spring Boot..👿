@@ -221,3 +221,10 @@ Example:   /api/book/10
 Here, 10 comes from the URL itself and is extracted using @PathVariable.
 
 #############################
+
+Map the Correct URL
+Which URL correctly matches a GET API defined as:
+
+@GetMapping("/api/user/{id}")
+
+ANSWER  =  
