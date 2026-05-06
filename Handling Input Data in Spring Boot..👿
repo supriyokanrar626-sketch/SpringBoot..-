@@ -64,3 +64,36 @@ Fetching a user by ID
 Deleting or updating a specific record
 
 #############################
+
+Worked Example - Using PathVariable for input
+Step 1: Run the Application
+
+Start your Spring Boot application
+Once the app is running successfully, the API Tester page will open automatically in your browser
+Step 2: Test “Get All Users” API
+
+In the URL input field, type:
+/api/users
+Click the Send button
+
+What happens:
+
+The request is sent to the backend
+The controller method without any input is triggered
+All demo users are returned
+Step 3: Test “Get User by ID” API
+
+In the URL input field, type below URL one by one and Observe the response:
+/api/users/0
+/api/users/1
+/api/users/2
+Click the Send button
+
+What happens:
+
+The value 0/1/2 is taken directly from the URL
+@PathVariable captures this value
+The corresponding user is fetched and returned
+
+################################
+
