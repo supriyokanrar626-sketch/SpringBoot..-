@@ -42,5 +42,49 @@ ANSWER = When multiple implementations exist and one should be the default
 
 #################
 
+ApplicationContext - The Brain Behind Beans
+You learned about Beans and Annotations:
+
+What a bean is?
+How annotations like @Service, @Autowired, and @Primary work?
+That Spring creates objects for us instead of using new?
+Now a very important question arises:
+
+Who creates these beans? 
+Who keeps track of them? 
+Who injects one bean into another? 
+The answer is ApplicationContext.
+
+What is ApplicationContext?
+ApplicationContext is the Spring container.
+It is the core object in Spring that:
+
+Creates beans
+Stores beans
+Injects beans into each other
+Manages the application lifecycle
+Think of it like
+You already know:
+@Service → tells Spring this class should be a bean
+@Autowired → tells Spring inject a bean here
+
+But Spring itself needs a manager to make this happen - That manager is ApplicationContext.
+
+What Exactly Does ApplicationContext Do?
+When the application starts, ApplicationContext:
+1. Scans the project
+Looks for annotations like @Service, @Component, @Controller
+2. Creates Beans
+Creates objects of all detected beans
+3. Stores Beans
+Keeps them in memory
+4. Injects Dependencies
+Handles @Autowired
+Injects the correct bean automatically
+5. Manages Lifecycle
+Controls when beans are created and destroyed
+
+######################
+
 
 
