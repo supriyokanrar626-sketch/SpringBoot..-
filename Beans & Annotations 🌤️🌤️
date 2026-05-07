@@ -52,12 +52,13 @@ You learned about Beans and Annotations:
 What a bean is?
 How annotations like @Service, @Autowired, and @Primary work?
 That Spring creates objects for us instead of using new?
+
 Now a very important question arises:
 
 Who creates these beans? 
 Who keeps track of them? 
 Who injects one bean into another? 
-The answer is ApplicationContext.
+The answer is ApplicationContext....
 
 What is ApplicationContext?
 ApplicationContext is the Spring container.
@@ -67,6 +68,7 @@ Creates beans
 Stores beans
 Injects beans into each other
 Manages the application lifecycle
+
 Think of it like
 You already know:
 @Service → tells Spring this class should be a bean
