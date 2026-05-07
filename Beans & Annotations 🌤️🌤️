@@ -157,6 +157,8 @@ When a Spring Boot application starts:
 Guess the Relation
 What is the relationship between ApplicationContext and beans?
 
-ANSWER = ApplicationContext stores and manages beans
+ANSWER = ApplicationContext stores and manages beans..
+
+#######
 
 
