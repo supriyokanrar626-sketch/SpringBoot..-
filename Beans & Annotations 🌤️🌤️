@@ -34,5 +34,8 @@ ANSWER = To let Spring manage dependencies and object lifecycle
 Spring handles object creation, dependency injection, and lifecycle management.
 
 ###############$$#
+Use of Primary
+When do we use @Primary?
 
+ANSWER = 
 
