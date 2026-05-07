@@ -37,5 +37,10 @@ Spring handles object creation, dependency injection, and lifecycle management.
 Use of Primary
 When do we use @Primary?
 
-ANSWER = 
+ANSWER = When multiple implementations exist and one should be the default
+@Primary tells Spring which bean to choose by default.
+
+#################
+
+
 
