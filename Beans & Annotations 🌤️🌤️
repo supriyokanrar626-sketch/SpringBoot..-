@@ -150,5 +150,8 @@ When a Spring Boot application starts:
 3. Then Spring scans, creates, and injects beans
 
 ##############$$
+Guess the Relation
+What is the relationship between ApplicationContext and beans?
 
+ANSWER = 
 
