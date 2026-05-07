@@ -143,4 +143,12 @@ SpringApplication.run() creates the ApplicationContext and starts the app.
 Identify Spring Boot Startup Flow
 Which statement best describes the flow in Spring Boot startup?
 
-ANSWER = 
+ANSWER = run() -> ApplicationContext -> Beans
+When a Spring Boot application starts:
+1. SpringApplication.run() is executed
+2. It creates the ApplicationContext
+3. Then Spring scans, creates, and injects beans
+
+##############$$
+
+
