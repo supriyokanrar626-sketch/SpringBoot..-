@@ -132,4 +132,7 @@ This is why ApplicationContext is the heart of Spring Boot.
 
 #################
 
+ApplicationContext Creation in Spring Boot
+Which line actually creates the ApplicationContext in a Spring Boot application?
 
+ANSWER = 
