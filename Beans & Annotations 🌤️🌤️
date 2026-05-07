@@ -86,5 +86,50 @@ Controls when beans are created and destroyed
 
 ######################
 
+Understand Application Context with example
+Without ApplicationContext (Old Way)
+
+BookService bookService = new BookService();
+EmailNotificationService emailService = new EmailNotificationService();
+Problems:
+
+You manage everything manually
+Tight coupling
+Hard to change implementations
+With ApplicationContext (Spring Way)
+
+@Service
+public class BookService {
+
+    @Autowired
+    private EmailNotificationService emailService;
+}
+No new
+Spring injects dependencies
+ApplicationContext handles everything
+ApplicationContext in Spring Boot
+
+@SpringBootApplication
+public class LibraryApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(LibraryApplication.class, args);
+    }
+}
+In Spring Boot, you do NOT create ApplicationContext manually.
+
+SpringApplication.run(LibraryApplication.class, args);
+This line:
+
+Creates the ApplicationContext
+Scans all beans
+Starts the application
+So in Spring Boot:
+You start the app using run() →
+Spring creates the ApplicationContext →
+ApplicationContext creates and manages all beans
+
+This is why ApplicationContext is the heart of Spring Boot.
+
+#################
 
 
