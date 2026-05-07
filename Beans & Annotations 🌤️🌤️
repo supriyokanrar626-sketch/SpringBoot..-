@@ -1,1 +1,29 @@
 
+Beans & Annotations..
+
+Now that we’ve seen how the order and payment flow works in previous example, it’s important to understand the main 
+Spring components that made this possible. These are the building blocks Spring uses to manage objects, dependencies, and the application itself.
+
+What is beans:
+
+In Spring, a bean is simply an object that Spring manages for you.
+Instead of manually creating objects with new, Spring creates, manages, and provides these objects wherever they are needed.
+Beans are the building blocks of a Spring application — services, repositories, controllers, or other components can all be bean.
+In previous example, we have the following annotations:
+
+@Service
+Marks a class as a service bean (business logic).
+Spring automatically creates an object (bean) of this class.
+@Primary
+Marks a bean as the default when multiple implementations of an interface exist.
+@Autowired
+Tells Spring to automatically inject a bean (object) into a class.
+Spring finds the matching bean and provides it — no new keyword needed
+@Override
+Java annotation
+Marks that a method overrides a method from an interface or parent class.
+@SpringBootApplication
+Marks the main class of a Spring Boot application — this is the starter of your app.
+
+№##########$#########
+
