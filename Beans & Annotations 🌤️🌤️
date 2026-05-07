@@ -30,7 +30,7 @@ Marks the main class of a Spring Boot application — this is the starter of you
 Use of Spring Beans
 Why do we use Spring Beans instead of creating objects with new?
 
-ANSWER = To let Spring manage dependencies and object lifecycle
+ANSWER = To let Spring manage dependencies and object lifecycle..
 Spring handles object creation, dependency injection, and lifecycle management.
 
 ###############$$#
