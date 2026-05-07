@@ -78,6 +78,7 @@ But Spring itself needs a manager to make this happen - That manager is Applicat
 
 What Exactly Does ApplicationContext Do?
 When the application starts, ApplicationContext:
+
 1. Scans the project
 Looks for annotations like @Service, @Component, @Controller
 2. Creates Beans
