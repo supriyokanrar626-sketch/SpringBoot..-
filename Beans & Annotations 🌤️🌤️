@@ -140,4 +140,7 @@ SpringApplication.run() creates the ApplicationContext and starts the app.
 
 #############
 
+Identify Spring Boot Startup Flow
+Which statement best describes the flow in Spring Boot startup?
 
+ANSWER = 
