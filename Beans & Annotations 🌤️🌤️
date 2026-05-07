@@ -46,7 +46,7 @@ ANSWER = When multiple implementations exist and one should be the default
 
 #################
 
-ApplicationContext - The Brain Behind Beans
+ApplicationContext - The Brain Behind Beans... <<Theory>>...
 You learned about Beans and Annotations:
 
 What a bean is?
