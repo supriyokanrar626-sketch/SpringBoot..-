@@ -14,14 +14,18 @@ In previous example, we have the following annotations:
 @Service
 Marks a class as a service bean (business logic).
 Spring automatically creates an object (bean) of this class.
+
 @Primary
 Marks a bean as the default when multiple implementations of an interface exist.
+
 @Autowired
 Tells Spring to automatically inject a bean (object) into a class.
 Spring finds the matching bean and provides it — no new keyword needed
+
 @Override
 Java annotation
 Marks that a method overrides a method from an interface or parent class.
+
 @SpringBootApplication
 Marks the main class of a Spring Boot application — this is the starter of your app.
 
