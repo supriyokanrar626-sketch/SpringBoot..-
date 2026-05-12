@@ -44,3 +44,171 @@ NOT :
 How they are implemented
 
 Let’s see this practically in the next section -..
+
+######################
+
+Interface-Based Notes API - Demo..
+
+Now we’ll convert your Notes API into Interface-Based Design using proper layered architecture.
+We will create:
+
+Controller → Service (interface + impl) → Repository (interface + impl)
+This is the standard Spring Boot industry structure.
+
+How Project Structure looks in this Example:
+
+com.example.demo
+│
+├── controller
+│   └── NoteController.java
+│
+├── service
+│   ├── NoteService.java          (INTERFACE)
+│   └── NoteServiceImpl.java      (IMPLEMENTATION)
+│
+├── repository
+│   ├── NoteRepository.java         (INTERFACE)
+│   └── InMemoryNoteRepository.java (IMPLEMENTATION)
+1. NoteRepository (Interface)
+
+public interface NoteRepository {
+    void save(String note);
+    List<String> findAll();
+}
+What this code does :
+
+This is a repository contract.
+It defines the operations related to data storage.
+It does not contain any implementation logic.
+Methods
+
+save(String note) → used to store a note
+findAll() → used to retrieve all notes
+Any repository class must implement these methods.
+
+2. InMemoryNoteRepository (Repository Implementation)
+
+@Repository
+public class InMemoryNoteRepository implements NoteRepository {
+What this class does
+
+Provides the actual implementation of the repository interface.
+Stores notes using an in-memory list.
+In-memory storage
+
+private final List<String> notes = new ArrayList<>();
+Creates a list to store notes temporarily.
+Data exists only while the application is running.
+Save method
+
+@Override
+public void save(String note) {
+    notes.add(note);
+}
+Adds the received note into the list.
+
+Fetch method
+
+@Override
+public List<String> findAll() {
+    return notes;
+}
+Returns all stored notes.
+
+Annotation :
+
+@Repository
+Marks this class as a repository component.
+Spring automatically creates and manages its object.
+3. NoteService (Interface)
+
+public interface NoteService {
+    void addNote(String note);
+    List<String> getAllNotes();
+}
+What this code does
+
+Defines business operations related to notes.
+Contains only method declarations.
+No logic is written here.
+Methods
+
+addNote() → adds a note
+getAllNotes() → retrieves notes
+4. NoteServiceImpl (Service Implementation)
+
+@Service
+public class NoteServiceImpl implements NoteService {
+What this class does
+
+Contains the business logic of the application.
+Uses repository methods to perform data operations.
+Dependency declaration
+
+private final NoteRepository noteRepository;
+Service depends on the repository interface.
+The actual implementation is injected by Spring.
+Constructor Injection
+
+public NoteServiceImpl(NoteRepository noteRepository) {
+    this.noteRepository = noteRepository;
+}
+Spring automatically provides a repository object.
+No manual object creation is required.
+Add note logic
+
+@Override
+public void addNote(String note) {
+    noteRepository.save(note);
+}
+Calls repository to store the note.
+
+Get notes logic
+
+@Override
+public List<String> getAllNotes() {
+    return noteRepository.findAll();
+}
+Retrieves notes from repository.
+
+Annotation
+
+@Service
+Marks this class as a service layer component.
+Spring manages its lifecycle automatically.
+5. NoteController
+
+@RestController
+@RequestMapping("/api/notes")
+What this class does
+
+Handles HTTP requests.
+Communicates with the service layer.
+Does not contain business or storage logic.
+Service dependency
+
+private final NoteService noteService;
+Controller uses the service interface.
+
+Constructor Injection
+
+public NoteController(NoteService noteService) {
+    this.noteService = noteService;
+}
+Spring injects the service implementation automatically.
+
+POST Endpoint — Add Note
+
+@PostMapping
+public String addNote(@RequestBody String note)
+Receives note text from request body.
+Calls service to add the note.
+Returns success message.
+GET Endpoint — Get Notes
+
+@GetMapping("/list")
+public List<String> getNotes()
+Calls service to fetch all notes.
+Returns notes as JSON response.
+
+#######################################
