@@ -1,1 +1,46 @@
+Problem in Current Layered Design..
 
+Right now, our classes depend directly on concrete implementations.
+In Previous Example, You've seen:
+
+public class NoteService {
+
+    private final NoteRepository noteRepository;
+
+    public NoteService(NoteRepository noteRepository) {
+        this.noteRepository = noteRepository;
+    }
+}
+Here:
+
+NoteService directly depends on NoteRepository
+The service knows exactly which repository implementation is used
+This creates tight coupling.
+What is Tight Coupling?
+Tight coupling means:
+One class is strongly dependent on a specific implementation of another class.
+
+Real Problem Example
+Today we are using:
+
+In-Memory Repository (ArrayList)
+Tomorrow we may want:
+
+Database repository (MySQL/PostgreSQL)
+File storage
+External API storage
+If NoteService depends directly on NoteRepository, we must modify existing code whenever implementation changes.
+
+This breaks an important clean architecture principle:
+High-level modules should not depend on low-level modules.
+
+Solution — Interface-Based Design
+Instead of depending on a class, we depend on a contract.
+That contract is called an Interface.
+
+An interface defines :
+What operations are available
+NOT :
+How they are implemented
+
+Let’s see this practically in the next section -..
