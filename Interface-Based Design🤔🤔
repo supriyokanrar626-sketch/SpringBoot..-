@@ -268,4 +268,33 @@ public class InMemoryNoteRepository implements NoteRepository {
     }
 }
 
-###########################  
+###########################  NoteServicelmpl.java
+
+package com.example.demo.service;
+
+import com.example.demo.repository.NoteRepository;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class NoteServiceImpl implements NoteService {
+
+    private final NoteRepository noteRepository;
+
+    // Constructor Dependency Injection
+    public NoteServiceImpl(NoteRepository noteRepository) {
+        this.noteRepository = noteRepository;
+    }
+
+    @Override
+    public void addNote(String note) {
+        noteRepository.save(note);
+    }
+
+    @Override
+    public List<String> getAllNotes() {
+        return noteRepository.findAll();
+    }
+}
+
+##########################
