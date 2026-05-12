@@ -211,4 +211,36 @@ public List<String> getNotes()
 Calls service to fetch all notes.
 Returns notes as JSON response.
 
-#######################################
+#######################################  notecontrollor.java
+
+package com.example.demo.controller;
+
+import com.example.demo.service.NoteService;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/notes")
+public class NoteController {
+
+    private final NoteService noteService;
+
+    public NoteController(NoteService noteService) {
+        this.noteService = noteService;
+    }
+
+    // POST /api/notes
+    @PostMapping
+    public String addNote(@RequestBody String note) {
+        noteService.addNote(note);
+        return "Note added successfully!";
+    }
+
+    // GET /api/notes/list
+    @GetMapping("/list")
+    public List<String> getNotes() {
+        return noteService.getAllNotes();
+    }
+}
+
+#########################
