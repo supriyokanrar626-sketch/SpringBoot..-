@@ -243,4 +243,29 @@ public class NoteController {
     }
 }
 
-#########################
+######################### InmemoryNoteRepository.java
+
+package com.example.demo.repository;
+
+import org.springframework.stereotype.Repository;
+import java.util.ArrayList;
+import java.util.List;
+
+@Repository
+public class InMemoryNoteRepository implements NoteRepository {
+
+    // In-memory storage
+    private final List<String> notes = new ArrayList<>();
+
+    @Override
+    public void save(String note) {
+        notes.add(note);
+    }
+
+    @Override
+    public List<String> findAll() {
+        return notes;
+    }
+}
+
+###########################  
