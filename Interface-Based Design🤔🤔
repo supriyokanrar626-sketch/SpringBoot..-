@@ -11,6 +11,7 @@ public class NoteService {
         this.noteRepository = noteRepository;
     }
 }
+
 Here:
 
 NoteService directly depends on NoteRepository
