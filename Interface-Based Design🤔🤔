@@ -476,3 +476,13 @@ What problem occurs when a class depends directly on a concrete implementation?
 
 Answer = Tight Coupling
 Depending on a concrete class creates a strong dependency between classes, which is called tight coupling.
+
+########################
+
+Guess the Output
+Why is interface-based design useful when switching from in-memory storage to database storage?
+
+Answer = Only Repository Implementation changes
+With interface-based design, the service depends on an interface, not a specific implementation.
+So when switching storage (in-memory → database), only the repository implementation changes, while service and controller remain unchanged.
+###############
