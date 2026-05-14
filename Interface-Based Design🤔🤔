@@ -350,3 +350,37 @@ Follow interface-based design
 Repository handles storage only
 Service handles logic only
 Do not change package names
+
+#####################  taskControllor.java
+
+package com.example.demo.controller;
+
+import com.example.demo.service.TaskService;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/tasks")
+public class TaskController {
+
+    private final TaskService taskService;
+
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
+
+    // TODO: POST endpoint to add task
+    @PostMapping
+    public String addTask(@RequestBody String task){
+        taskService.addTask(task);
+        return "Task added successfully";
+    }
+
+    // TODO: GET endpoint to fetch tasks
+    @GetMapping("/list")
+    public List<String> getTasks(){
+        return taskService.getAllTasks();
+    }
+}
+
+#######################
