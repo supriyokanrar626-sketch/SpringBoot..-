@@ -468,3 +468,8 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.findAll();
     }
 }
+
+####################
+
+Guess the Issue
+What problem occurs when a class depends directly on a concrete implementation?
