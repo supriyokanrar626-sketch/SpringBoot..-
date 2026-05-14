@@ -473,3 +473,6 @@ public class TaskServiceImpl implements TaskService {
 
 Guess the Issue
 What problem occurs when a class depends directly on a concrete implementation?
+
+Answer = Tight Coupling
+Depending on a concrete class creates a strong dependency between classes, which is called tight coupling.
