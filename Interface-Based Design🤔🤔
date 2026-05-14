@@ -409,4 +409,20 @@ public class InMemoryTaskRepository implements TaskRepository {
     }
 }
 
-#######################  
+#######################  task repository.java
+
+package com.example.demo.repository;
+
+import java.util.List;
+
+public interface TaskRepository {
+
+    // TODO: declare method to save a task
+    void save(String task);
+    List<String>findAll();
+
+    // TODO: declare method to return all tasks
+
+}
+
+#####################
