@@ -40,7 +40,7 @@ Production ready - Yes
 
 #####################################
 
-What is ORM & Why We Need
+What is ORM & Why We Need..
 Now Consider You're using Database - But New Problem Appears…
 Java works with:
 
@@ -71,3 +71,6 @@ Object → Row
 Fields → Columns
 So instead of writing SQL manually, we work with Java objects.
 ORM handles database interaction for us.
+
+############################3
+
