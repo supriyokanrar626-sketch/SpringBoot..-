@@ -17,7 +17,6 @@ What happens if you restart your application? -> All data disappears.
 That’s the real problem -> In-Memory Data is Temporary
 
 That Means :
-
 Restart app, Data gone
 Server crash, Data gone
 Deploy to production, Data gone
@@ -62,13 +61,13 @@ What is ORM?
 ORM = Object Relational Mapping
 
 It is a technique that:
-
 Converts Java Objects ⇄ Database Tables automatically.
-Simple meaning:
 
+Simple meaning:
 Java class → Database table
 Object → Row
 Fields → Columns
+
 So instead of writing SQL manually, we work with Java objects.
 ORM handles database interaction for us.
 
