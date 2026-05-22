@@ -90,3 +90,48 @@ What does ORM stand for?
 ANSWER = Object Relational Mapping
 
 #########################
+
+Intro to JPA
+Now you understand what ORM is...But here’s something important
+ORM is just a concept, It is not a library.
+
+So the next question is: Who actually implements ORM in Java?
+
+This is where JPA comes in.
+
+JPA = Java Persistence API JPA is a specification.
+It is a set of rules that tells:
+
+How Java classes should map to database tables
+How objects should be saved and fetched
+How CRUD operations should work
+Important:
+
+JPA is NOT a tool.
+JPA does NOT contain actual code to talk to the database.
+It just defines the rules.
+Think of JPA like:
+
+A rule book for ORM in Java.
+But rule books alone don’t do the work.
+We need someone to follow those rules and implement them
+
+So, To actually use JPA, we need an implementation.
+The most popular implementation of JPA is:
+
+Hibernate
+Hibernate is the real engine that:
+
+Generates SQL
+Creates tables
+Executes queries
+Talks to the database
+So:
+
+JPA → Rules
+Hibernate → Does the actual work
+When you use Spring Boot with JPA, internally Hibernate is working for you.
+
+Next, Let'see - How this works practically from a simple demo example :
+
+#########################################
