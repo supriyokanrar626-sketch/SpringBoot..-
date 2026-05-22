@@ -125,6 +125,7 @@ Generates SQL
 Creates tables
 Executes queries
 Talks to the database
+
 So:
 
 JPA → Rules
