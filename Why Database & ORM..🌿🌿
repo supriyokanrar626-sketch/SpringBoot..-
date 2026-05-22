@@ -166,3 +166,6 @@ ORM → Concept to map objects to tables
 JPA → Rules for ORM in Java
 Hibernate → Implements JPA
 Spring Data JPA → Makes Hibernate super easy to use
+
+##################################
+
