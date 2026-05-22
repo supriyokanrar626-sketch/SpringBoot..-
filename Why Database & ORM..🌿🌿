@@ -1,1 +1,39 @@
 
+Why Database...
+
+First, Let’s Connect to What You Already Built
+Till now in your course:
+
+You built APIs
+You created a Book Manager
+You implemented Full CRUD
+You used Layered Architecture & Interfaces
+But…
+Everything was stored in memory (List).
+
+Now think about this…
+What happens if you restart your application? -> All data disappears.
+
+That’s the real problem -> In-Memory Data is Temporary
+
+That Means :
+
+Restart app, Data gone
+Server crash, Data gone
+Deploy to production, Data gone
+Multiple users, Not scalable
+So for real-world applications, this is NOT acceptable.
+We need permanent storage.
+
+Thus We Need a Database
+
+What is DataBase?
+A database stores data permanently.
+Instead of storing data inside a List temporary, we store them inside a database table.
+
+Now:
+
+Restart app - Data still there
+Thousands of users - Works
+Large data - Works
+Production ready - Yes
