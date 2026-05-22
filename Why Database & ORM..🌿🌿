@@ -135,3 +135,34 @@ When you use Spring Boot with JPA, internally Hibernate is working for you.
 Next, Let'see - How this works practically from a simple demo example :
 
 #########################################
+
+Intro to Spring Data JPA
+Now here comes the best part :
+Even Hibernate can require some boilerplate code.
+Spring Boot makes it even simpler using : Spring Data JPA
+
+With Spring Data JPA, you don’t:
+
+Write implementation classes
+Write SQL for basic CRUD
+Write boilerplate code
+You just create an interface like this:
+public interface BookRepository extends JpaRepository<Book, Long> {
+}
+And you automatically get:
+
+save()
+findAll()
+findById()
+deleteById()
+Without writing any implementation
+Spring generates everything for you at runtime.
+
+Big Picture
+Let’s connect everything clearly:
+
+Database → Stores data
+ORM → Concept to map objects to tables
+JPA → Rules for ORM in Java
+Hibernate → Implements JPA
+Spring Data JPA → Makes Hibernate super easy to use
