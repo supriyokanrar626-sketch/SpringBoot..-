@@ -77,4 +77,9 @@ ORM handles database interaction for us.
 Check Your Understanding
 Java works with ______ while databases work with ______.
 
-ANSWER = 
+ANSWER = Objects, Tables
+Java works with objects (created from classes).
+Databases store data in tables (with rows and columns).
+So we need ORM (like JPA) to convert Objects ↔ Tables.
+
+################################
