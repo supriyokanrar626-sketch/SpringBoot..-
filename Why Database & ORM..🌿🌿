@@ -172,3 +172,6 @@ Spring Data JPA → Makes Hibernate super easy to use
 Check Your Understanding
 JPA is:
 ANSWER = A specification (set of rules)
+JPA (Java Persistence API) is not a database and not a tool itself.
+It is a set of rules/interfaces that define how Java objects should be saved and retrieved from a database.
+
