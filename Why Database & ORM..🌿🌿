@@ -181,3 +181,6 @@ Identify the Reason Behind
 Why do we need Hibernate when using JPA?
 
 ANSWER = Because JPA does not contain actual implementation code
+JPA is just a specification (set of rules).
+It does not contain actual implementation code to talk to the database.
+Hibernate implements JPA and performs the real work like generating SQL and executing queries.
