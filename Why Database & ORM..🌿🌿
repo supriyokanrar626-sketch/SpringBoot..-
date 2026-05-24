@@ -180,4 +180,4 @@ It is a set of rules/interfaces that define how Java objects should be saved and
 Identify the Reason Behind
 Why do we need Hibernate when using JPA?
 
-ANSWER = 
+ANSWER = Because JPA does not contain actual implementation code
