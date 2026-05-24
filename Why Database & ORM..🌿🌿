@@ -176,3 +176,6 @@ JPA (Java Persistence API) is not a database and not a tool itself.
 It is a set of rules/interfaces that define how Java objects should be saved and retrieved from a database.
 
 ###############################################
+
+Identify the Reason Behind
+Why do we need Hibernate when using JPA?
