@@ -184,3 +184,64 @@ ANSWER = Because JPA does not contain actual implementation code
 JPA is just a specification (set of rules).
 It does not contain actual implementation code to talk to the database.
 Hibernate implements JPA and performs the real work like generating SQL and executing queries.
+
+################################################
+
+Demo - Saving a Book & Viewing It in the Database
+Before we begin :
+
+Run your Spring Boot app.
+API Tester will open in the lab browser.
+Add a book using POST.
+Example : POST /api/books
+{
+  "title": "Spring Boot",
+  "author": "John"
+}
+Call GET and check if the book is returned.
+If yes, everything is working properly.
+
+Note :
+Don't focus on the code for now just focus on overview, we'll understand code in upcoming section.
+
+Now Let’s See the Database
+Step 1: Open H2 Console
+In the lab URL, after codechef-apps.com Add :
+
+/h2-console/login.jsp
+Login Page will get open :image
+
+Step 2: Login
+Enter:
+
+JDBC URL : jdbc:h2:mem:testdb
+Username : sa
+Password : (leave empty)
+Click Connect.
+
+Step 3: Run Query
+In the SQL box, type:
+
+SELECT * FROM BOOK;
+Click ▶️ Run, You'll See:image
+
+Here,
+“We created a Java object…
+And now it is stored inside a real database table.”
+
+This is ORM happening.
+
+“Wait… which database are we actually using?”
+In this project, we are using H2 Database.
+
+Don’t worry about its configuration right now.
+We’ll see how to set up and use H2 properly in the upcoming section.
+
+For now, just focus on understanding the flow:
+
+Object → JPA → Hibernate → Database
+This demo is only to help you see how everything works together behind the scenes.
+Next, Let's understand this in more depth.
+
+#################################  CODE //////////////
+
