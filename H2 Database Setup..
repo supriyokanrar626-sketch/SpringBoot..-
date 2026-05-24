@@ -1,1 +1,28 @@
+Setting Up The Database (H2)
+In the previous demo, you:
 
+Added a book using POST
+Fetched it using GET
+Opened the database
+Saw the BOOK table
+You saw that your Java object was actually stored inside a real database table.
+Now the important question is:
+
+Which database were we using?
+The Database We Used: H2
+
+In our previous example, we were using a database called H2.
+H2 is:
+
+A lightweight, high-performance database management system written in Java
+Very easy to set up
+Runs inside your Spring Boot application
+Perfect for learning and testing
+That’s why we used it for this demo.
+
+Now, let’s properly configure H2 step-by-step:
+
+Add H2 dependency
+Configure application.properties
+Open H2 console
+Next, Let’s start with adding the dependency.
