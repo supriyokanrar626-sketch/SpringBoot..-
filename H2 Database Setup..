@@ -157,3 +157,5 @@ Without adding H2 (or any DB dependency), there is no database available to stor
 
 H2 Database - MCQ 2
 Which ORM framework is included automatically when we add spring-boot-starter-data-jpa?
+
+ANSWER = Hibernate
