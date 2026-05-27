@@ -31,3 +31,120 @@ Next, Let’s start with adding the dependency.
 
 ##################################
 
+H2 Database Setup
+To use H2 database in our Spring Boot project, we must add its dependency.
+
+Step 1: Adding H2 Dependency
+If you are using Spring Initializr to download the dependency as you've learned earlier then, just select:
+
+Spring Data JPA
+H2 Database
+If adding manually in pom.xml, add this:
+
+<!-- JPA -->
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+<!-- H2 Database -->
+<dependency>
+	<groupId>com.h2database</groupId>
+	<artifactId>h2</artifactId>
+	<scope>runtime</scope>
+</dependency>
+spring-boot-starter-data-jpa
+This dependency:
+Adds JPA support
+Adds Hibernate (ORM implementation)
+Enables repository features like:
+bookRepository.save(book);
+bookRepository.findAll();
+You don’t write SQL manually.
+JPA + Hibernate handle database operations for you.
+h2 Dependency
+This dependency:
+Adds H2 database to our project
+Allows Spring Boot to connect to it
+Enables H2 console
+Without this, database won’t work.
+
+Step 2: Configure application.properties
+Now we tell Spring Boot how to connect to H2.
+Open:
+
+src/main/resources/application.properties
+Add this configuration:
+
+# H2 Database Config
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+# Show SQL in console
+spring.jpa.show-sql=true
+
+# Automatically create tables
+spring.jpa.hibernate.ddl-auto=update
+
+# Enable H2 Console
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+spring.h2.console.settings.web-allow-others=true
+spring.h2.console.settings.trace=false
+What These Important Lines Mean
+
+jdbc:h2:mem:testdb
+mem means in-memory database
+Data exists while app is running
+Restart → data gone
+ddl-auto=update
+This tells Hibernate:
+
+Automatically create or update tables based on our @Entity classes.
+So when we create:
+@Entity
+public class Book { ... }
+Table is automatically created.
+No manual SQL needed.
+show-sql=true
+
+This prints SQL queries in console.
+So when we call:
+bookRepository.save(book);
+You will see:
+
+insert into book ...
+This helps students see ORM in action.
+
+Step 3: Open H2 Console
+After running the application, open:
+
+If port is 3000:
+
+http://localhost:3000/h2-console
+Login with:
+
+JDBC URL: jdbc:h2:mem:testdb
+Username: sa
+Password: (leave empty)
+Click Connect.
+
+Now you can see your tables.
+
+What Just Happened?
+When the app starts:
+
+Spring Boot connects to H2
+Hibernate reads @Entity
+Table is created automatically
+Repository works with database
+All automatically.
+That’s the power of Spring Boot + JPA + H2.
+
+#########################################
+
+H2 Database - MCQ 1
+Without adding the H2 dependency, what will happen?
