@@ -159,3 +159,6 @@ H2 Database - MCQ 2
 Which ORM framework is included automatically when we add spring-boot-starter-data-jpa?
 
 ANSWER = Hibernate
+When we add spring-boot-starter-data-jpa, Spring Boot automatically includes Hibernate as the default ORM implementation.
+
+#################################
