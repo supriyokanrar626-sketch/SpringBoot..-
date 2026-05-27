@@ -150,3 +150,8 @@ H2 Database - MCQ 1
 Without adding the H2 dependency, what will happen?
 
 ANSWER = There will be no database to store data
+Because H2 is the database.
+Without adding H2 (or any DB dependency), there is no database available to store data.
+
+######################################
+
