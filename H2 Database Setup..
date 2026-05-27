@@ -1,4 +1,6 @@
-Setting Up The Database (H2)
+Setting Up The Database (H2)...
+
+
 In the previous demo, you:
 
 Added a book using POST
@@ -26,3 +28,6 @@ Add H2 dependency
 Configure application.properties
 Open H2 console
 Next, Let’s start with adding the dependency.
+
+##################################
+
