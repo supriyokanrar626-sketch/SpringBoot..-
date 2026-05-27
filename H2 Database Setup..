@@ -148,3 +148,5 @@ That’s the power of Spring Boot + JPA + H2.
 
 H2 Database - MCQ 1
 Without adding the H2 dependency, what will happen?
+
+ANSWER = There will be no database to store data
