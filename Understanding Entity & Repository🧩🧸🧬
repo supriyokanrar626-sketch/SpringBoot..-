@@ -509,3 +509,65 @@ Username : sa
 Password : (leave empty)
 Then Run Query : SELECT * FROM PRODUCT
 & Observe the result in Table PRODUCT.
+
+##########################3333   ProductController.java ##########3
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+import com.example.demo.model.Product;
+import com.example.demo.repository.ProductRepository;
+
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
+
+    private final ProductRepository productRepository;
+
+    public ProductController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    // Create Product
+    @PostMapping
+    public Product addProduct(@RequestBody Product product) {
+        return productRepository.save(product);
+    }
+
+    // Get All Products
+    @GetMapping
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    // Get Product By ID
+    @GetMapping("/{id}")
+    public Product getProductById(@PathVariable Long id) {
+        return productRepository.findById(id).orElse(null);
+    }
+
+    // Update Product
+    @PutMapping("/{id}")
+    public Product updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct) {
+
+        Product product = productRepository.findById(id).orElse(null);
+
+        if (product != null) {
+            product.setName(updatedProduct.getName());
+            product.setPrice(updatedProduct.getPrice());
+
+            return productRepository.save(product);
+        }
+
+        return null;
+    }
+
+    // Delete Product
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable Long id) {
+        productRepository.deleteById(id);
+    }
+}
+
