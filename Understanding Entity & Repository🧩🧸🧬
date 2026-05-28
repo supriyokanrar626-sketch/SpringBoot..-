@@ -1,1 +1,140 @@
 
+Understanding Entity & Repository
+Till now, we understood the flow:
+Object → JPA → Hibernate → Database
+We also saw how our Book object was stored inside a real database table.
+
+Before we begin...
+
+Run your Spring Boot app.
+API Tester will open in the lab browser.
+Add a book using POST.
+Open H2 Console
+In the lab URL, after codechef-apps.com Add :
+/h2-console/login.jsp
+Login Page will get open :
+Enter:
+
+JDBC URL : jdbc:h2:mem:testdb
+Username : sa
+Password : (leave empty)
+Click Connect.
+Run Query SELECT * FROM BOOK;, You'll see BOOK table
+Now it’s time to understand how we actually write the code that makes this happen.
+In this section, we will continue using our previous Book demo example.
+
+Step 1: Creating an Entity
+Look at the code in IDE:
+We created a class - Book.java :
+
+import jakarta.persistence.*;
+
+@Entity
+public class Book {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
+    private String author;
+
+    // getters and setters
+}
+@Entity :
+@Entity tells JPA:
+"This class should be converted into a database table."
+So: Book class → BOOK table
+
+@Id :
+@Id tells JPA:
+"This field is the Primary Key."
+Every table must have a primary key.
+Here: private Long id; - is the primary key.
+
+@GeneratedValue :
+
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+This tells:
+"Database should automatically generate the ID."
+
+So when we save:
+
+new Book("Spring", "John");
+We don’t manually set ID.
+Database creates it automatically.
+
+Step 2: Creating Repository
+Now we need a way to talk to the database.
+Instead of writing SQL, we create an interface BookRepository:
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookRepository extends JpaRepository<Book, Long> {
+}
+That’s it. No implementation. No SQL.
+
+What is JpaRepository<Book, Long>?
+
+This means:
+Book → Entity type
+Long → Type of Primary Key (id)
+Spring automatically creates implementation at runtime.
+What Do We Get Automatically? Without writing any code, we get:
+
+save(book);
+findAll();
+findById(id);
+deleteById(id);
+All CRUD operations are already available.
+
+Big Picture From Example @Entity → Creates table @Id → Primary key @GeneratedValue → Auto ID JpaRepository → Ready-made CRUD
+
+No SQL. No implementation class. Just annotations and interface.
+
+Step 3: Controller Using Repository
+Now look at the code in IDE:
+Open BookController.java:
+This is the Controller layer that exposes APIs for the Book application.
+
+The controller does not talk to the database directly. Instead, it uses BookRepository to perform database operations.
+
+Repository Injection :
+Inside the controller, you will see that BookRepository is injected using constructor injection.
+This means Spring automatically provides the repository object when the application starts.
+So the controller can directly use the repository to perform database operations.
+
+POST API — Save Book
+When a client sends a request to:
+
+POST /api/books
+The request body contains a Book object.
+The controller receives this object and calls the repository to save it.
+
+Behind the scenes:
+
+Controller receives the request.
+Controller calls the repository.
+Spring Data JPA passes the object to Hibernate.
+Hibernate converts the object into SQL INSERT.
+The book is stored in the database table.
+GET API — Fetch Books
+When a request is sent to:
+
+GET /api/books
+The controller simply calls the repository to fetch all books.
+
+Behind the scenes:
+
+Repository requests data from the database.
+Hibernate runs a SQL SELECT query.
+The rows from the table are converted into Book objects.
+The controller returns them as a response.
+Complete Flow Now
+From the moment a user sends a request:
+
+Client Request → Controller → Repository → JPA → Hibernate → Database
+And when data is returned:
+
+Database → Hibernate → JPA → Repository → Controller → Response
+This is how Entity, Repository, and Controller work together to store and retrieve data from the database.
