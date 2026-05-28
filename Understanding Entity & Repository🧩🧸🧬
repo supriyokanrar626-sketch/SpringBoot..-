@@ -12,6 +12,7 @@ Add a book using POST.
 Open H2 Console
 In the lab URL, after codechef-apps.com Add :
 /h2-console/login.jsp
+
 Login Page will get open :
 Enter:
 
@@ -138,3 +139,51 @@ And when data is returned:
 
 Database → Hibernate → JPA → Repository → Controller → Response
 This is how Entity, Repository, and Controller work together to store and retrieve data from the database.
+
+#####################   Bool.java  ##########
+
+package com.example.demo.model;
+
+import jakarta.persistence.*;
+
+@Entity
+public class Book {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
+    private String author;
+
+    // Constructors
+    public Book() {}
+
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+
+    // Getters & Setters
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+}
+
+############################   
