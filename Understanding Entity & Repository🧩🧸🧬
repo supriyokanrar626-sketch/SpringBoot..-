@@ -633,3 +633,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 }
 
 #######################################333333
+
+Check Your Understanding
+What does @Entity do in Spring Data JPA?
