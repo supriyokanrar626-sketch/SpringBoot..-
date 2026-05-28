@@ -642,4 +642,10 @@ ANSWER = Converts a Java class into a database table
 
 ##############################
 
-Book is the entity type and Long is the ID type ..
+Check Your Understanding
+What does this code mean?
+   public interface BookRepository extends JpaRepository<Book, Long>
+
+ANSWER =  Book is the entity type and Long is the ID type ..
+You're Right!
+Book is the entity class and Long is the type of its primary key.
