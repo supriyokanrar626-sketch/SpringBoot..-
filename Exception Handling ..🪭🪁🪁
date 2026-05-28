@@ -1,1 +1,21 @@
+Making APIs Production-Ready
+Till now in the course, you have learned how to:
 
+Build REST APIs
+Use Spring Data JPA
+Store data in a database
+Perform CRUD operations
+Your APIs are now working correctly.
+
+But in real-world applications, working is not enough. APIs must also be reliable, safe, and user-friendly.
+
+For example, think about these situations:
+
+A user requests a product that does not exist
+A client sends invalid input data
+A database operation fails
+An API needs search and filtering
+If we don't handle these cases properly, the API may return confusing errors or crash.
+So in this module, we will learn how to make our APIs production-ready.
+
+Click on "Next", To see various ways to make our APIs production-ready :
