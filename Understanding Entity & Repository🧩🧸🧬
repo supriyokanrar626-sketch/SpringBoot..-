@@ -639,3 +639,7 @@ What does @Entity do in Spring Data JPA?
 
 ANSWER = Converts a Java class into a database table 
 @Entity tells JPA that the class should be mapped to a database table.
+
+##############################
+
+Book is the entity type and Long is the ID type ..
