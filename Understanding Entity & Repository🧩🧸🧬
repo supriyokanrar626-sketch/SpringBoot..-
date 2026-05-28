@@ -233,4 +233,88 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
 #####################  ---------------------------------  ################3
 
+CRUD Operations with Spring Data JPA
+In the previous section, we learned that Spring Data JPA automatically provides CRUD methods when we extend JpaRepository.
+Now let’s understand this through a simple demo example.
 
+In this example, we built a Student Manager API using the same project structure you already know:
+
+model → Student.java
+repository → StudentRepository.java
+controller → StudentController.java
+Try It Yourself :
+
+1. Create Student (POST)
+When a request is sent to:
+
+POST /api/students
+The controller receives the student data and calls the repository to save the student.
+
+Behind the scenes:
+
+Controller → Repository → Hibernate → Database
+Hibernate generates an INSERT SQL query and stores the student in the database.
+
+To See Database :
+Open H2 Console
+In the lab URL, after codechef-apps.com Add :
+
+/h2-console/login.jsp
+Login Page will get open :
+Enter:
+
+JDBC URL : jdbc:h2:mem:testdb
+Username : sa
+Password : (leave empty)
+Click Connect.
+Run Query SELECT * FROM STUDENT;, You'll see STUDENT table :image
+2. Get All Students (GET)
+When a request is sent to:
+
+GET /api/students
+The controller calls the repository to fetch all students.
+Hibernate runs a SELECT query, converts the rows into Student objects, and returns them.
+
+3. Get Student By ID (GET)
+When a request is sent to:
+
+GET /api/students/{id}
+The repository fetches the student with that specific ID from the database.
+
+4. Update Student (PUT)
+When a request is sent to:
+
+PUT /api/students/{id}
+The controller updates the student data and calls save() again.
+Hibernate automatically generates an UPDATE SQL query.
+
+Let's see how the code works step by step
+
+Step 1: Entity (Student.java)
+
+First, look at the file Student.java inside the model folder.
+This class represents the data structure of a student.
+Using the @Entity annotation, we tell JPA: “This class should be converted into a database table.”
+So the mapping becomes:image
+The @Id annotation marks the primary key, and
+@GeneratedValue tells the database to generate the ID automatically.
+So whenever we create a new student, the database assigns the ID automatically.
+
+Step 2: Repository (StudentRepository.java)
+Next, open StudentRepository.java in the repository folder.
+Here we create a simple interface that extends JpaRepository.
+This is where Spring Data JPA becomes powerful.
+Just by extending JpaRepository, we automatically get several built-in CRUD methods such as:
+
+save() → Insert or update data
+findAll() → Get all records
+findById() → Get record by ID
+deleteById() → Delete record by ID
+The important thing here is:
+We did not write any SQL queries or implementation code.
+Spring Boot automatically generates the implementation at runtime.
+
+Step 3: Controller (StudentController.java)
+Now open StudentController.java in the controller folder.
+The controller exposes APIs that allow users to interact with the application. Inside the controller, we use StudentRepository to perform 
+database operations.
