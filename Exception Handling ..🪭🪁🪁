@@ -767,3 +767,22 @@ import com.example.demo.model.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 }
+
+################333  UserNotFoundException.java #########
+
+package com.example.demo.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class UserNotFoundException extends RuntimeException {
+    
+    public UserNotFoundException(String message) {
+        super(message);
+    }
+}
+
+###################################
+
+
