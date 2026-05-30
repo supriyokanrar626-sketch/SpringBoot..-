@@ -199,4 +199,257 @@ With message:
 
 Product not found with id: 5
 Flow of Execution
+Demo - Custom Exception in Product API
+Understanding Custom Exception from the Code
+Let’s first look at the code in the IDE and understand how the exception is created and used.
+
+We will follow a simple flow:
+
+Created a custom exception class. .
+Used that exception in the ProductController
+See what happens when a product exists vs does not exist
+Step 1: Created the Exception Class
+Firstly, created a new package:
+
+exception
+Inside this package, create the file:
+
+ProductNotFoundException.java
+Code
+
+package com.example.demo.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class ProductNotFoundException extends RuntimeException {
+
+    public ProductNotFoundException(String message) {
+        super(message);
+    }
+
+}
+What this code does
+Here we are creating our own exception.
+
+ProductNotFoundException is a custom exception
+It extends RuntimeException
+We pass a custom error message
+Example message:
+
+Product not found with id: 5
+So whenever a product is missing, our application can throw this exception with a clear message.
+
+Step 2: Use the Exception in the Controller
+Now open the controller:
+
+ProductController.java
+We will modify the Get Product By ID API.
+
+Code
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.model.Product;
+import com.example.demo.repository.ProductRepository;
+import com.example.demo.exception.ProductNotFoundException;
+
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
+
+    private final ProductRepository productRepository;
+
+    public ProductController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    // Get product by ID
+    @GetMapping("/{id}")
+    public Product getProduct(@PathVariable Long id) {
+
+        return productRepository.findById(id)
+                .orElseThrow(() ->
+                        new ProductNotFoundException("Product not found with id: " + id)
+                );
+    }
+
+}
+What Happens in This Code?
+The important line is:
+
+productRepository.findById(id)
+This method tries to find a product in the database.
+But this method does not always return a product.
+Instead, it returns:
+
+Optional<Product>
+This means the product may exist or may not exist.
+
+Case 1: Product Exists
+Example request:
+
+GET /api/products/1
+If product ID 1 exists, the API returns:
+
+{
+  "id": 1,
+  "name": "Laptop",
+  "price": 50000
+}
+Everything works normally.
+
+Case 2: Product Does NOT Exist
+Example request:
+
+GET /api/products/5
+Suppose product ID 5 is not in the database.
+Then this code runs:
+
+.orElseThrow(() -> new ProductNotFoundException(...))
+This tells Spring:
+If the product is not found, throw a ProductNotFoundException.
+
+So Spring throws:
+
+ProductNotFoundException
+With message:
+
+Product not found with id: 5
+Flow of Execution
+
+Demo - Custom Exception in Product API
+Understanding Custom Exception from the Code
+Let’s first look at the code in the IDE and understand how the exception is created and used.
+
+We will follow a simple flow:
+
+Created a custom exception class. .
+Used that exception in the ProductController
+See what happens when a product exists vs does not exist
+Step 1: Created the Exception Class
+Firstly, created a new package:
+
+exception
+Inside this package, create the file:
+
+ProductNotFoundException.java
+Code
+
+package com.example.demo.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class ProductNotFoundException extends RuntimeException {
+
+    public ProductNotFoundException(String message) {
+        super(message);
+    }
+
+}
+What this code does
+Here we are creating our own exception.
+
+ProductNotFoundException is a custom exception
+It extends RuntimeException
+We pass a custom error message
+Example message:
+
+Product not found with id: 5
+So whenever a product is missing, our application can throw this exception with a clear message.
+
+Step 2: Use the Exception in the Controller
+Now open the controller:
+
+ProductController.java
+We will modify the Get Product By ID API.
+
+Code
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.model.Product;
+import com.example.demo.repository.ProductRepository;
+import com.example.demo.exception.ProductNotFoundException;
+
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
+
+    private final ProductRepository productRepository;
+
+    public ProductController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    // Get product by ID
+    @GetMapping("/{id}")
+    public Product getProduct(@PathVariable Long id) {
+
+        return productRepository.findById(id)
+                .orElseThrow(() ->
+                        new ProductNotFoundException("Product not found with id: " + id)
+                );
+    }
+
+}
+What Happens in This Code?
+The important line is:
+
+productRepository.findById(id)
+This method tries to find a product in the database.
+But this method does not always return a product.
+Instead, it returns:
+
+Optional<Product>
+This means the product may exist or may not exist.
+
+Case 1: Product Exists
+Example request:
+
+GET /api/products/1
+If product ID 1 exists, the API returns:
+
+{
+  "id": 1,
+  "name": "Laptop",
+  "price": 50000
+}
+Everything works normally.
+
+Case 2: Product Does NOT Exist
+Example request:
+
+GET /api/products/5
+Suppose product ID 5 is not in the database.
+Then this code runs:
+
+.orElseThrow(() -> new ProductNotFoundException(...))
+This tells Spring:
+If the product is not found, throw a ProductNotFoundException.
+
+So Spring throws:
+ProductNotFoundException
+
+With message:
+Product not found with id: 5
+
+Flow of Execution ....
+
+Client Request
+      ↓
+GET /api/products/5
+      ↓
+Controller calls repository.findById()
+      ↓
+Product not found
+      ↓
+Throw ProductNotFoundException
 
