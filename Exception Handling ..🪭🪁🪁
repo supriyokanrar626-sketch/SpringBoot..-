@@ -1,4 +1,5 @@
-Making APIs Production-Ready
+Making APIs Production-Ready..
+
 Till now in the course, you have learned how to:
 
 Build REST APIs
@@ -48,3 +49,29 @@ Handling these situations properly is called:
 Exception Handling
 
 In the next section, we will start with - Creating a Custom Exception.
+
+###########################
+
+Creating a Custom Exception
+Now let’s handle the problem we discussed earlier.
+Imagine a user calls:
+
+GET /api/products/5
+But product with ID 5 does not exist.
+Instead of returning null or a confusing error, we want to clearly say:
+
+Product not found
+To do this properly, we create a custom exception.
+
+What is a Custom Exception?
+A custom exception is a user-defined error that we create for our application.
+It helps us clearly describe what went wrong.
+
+For example:
+
+Product not found
+User not found
+Order not found
+Instead of generic errors, we create specific exceptions.
+
+Click on "Next, To see how to create specific exceptions.
