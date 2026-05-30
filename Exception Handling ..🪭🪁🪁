@@ -795,3 +795,48 @@ are not enough to describe a particular problem.
 
 ###########################
 
+Guess the Output
+A custom exception in Java usually extends which class?
+
+answer = RuntimeException
+Explanation:
+In Java, a custom exception is usually created by extending RuntimeException so that we can define our own error for specific situations 
+in the application (like Product not found or User not found).
+
+########################
+
+ResponseEntity in Spring Boot..
+
+ResponseEntity is a class in Spring Boot used to send a complete HTTP response.
+It allows us to control:
+
+Response Body (data)
+Status Code (200, 201, 404, etc.)
+Headers (optional)
+Why do we use it?
+In real APIs, we don’t just send data — we also send status information.
+Example:
+
+Data found → 200 OK
+Data created → 201 CREATED
+Data not found → 404 NOT FOUND
+ResponseEntity helps us send both data + status together
+
+Syntax :
+
+ResponseEntity<T>
+T = type of data you want to return
+
+Common Methods
+
+*200 OK
+ResponseEntity.ok(data);
+*201 Created
+ResponseEntity.status(HttpStatus.CREATED).body(data);
+* 404 Not Found
+ResponseEntity.notFound().build();
+
+Now that you understand the concept, next let’s see this in action with a simple demo example, where we use ResponseEntity in a Spring Boot 
+controller and test it.
+
+#######################  
