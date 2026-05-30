@@ -785,4 +785,7 @@ public class UserNotFoundException extends RuntimeException {
 
 ###################################
 
+Check Your Understanding
+What is a Custom Exception?
 
+ANSWER = A user-defined error created for a specific situation in an application
