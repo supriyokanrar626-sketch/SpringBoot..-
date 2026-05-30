@@ -840,3 +840,84 @@ Now that you understand the concept, next let’s see this in action with a simp
 controller and test it.
 
 #######################  
+
+Demo Example (Book API using ResponseEntity)
+Let’s go through the code and understand ResponseEntity from the Code:
+1. Return Type
+
+public ResponseEntity<Book> addBook(...)
+
+ResponseEntity<Book> → response contains a Book object
+Along with a status code
+So each method returns: status + data
+
+2. CREATE API
+return ResponseEntity.status(HttpStatus.CREATED).body(savedBook);
+
+What happens here:
+
+status(HttpStatus.CREATED)` → sets HTTP status to 201
+body(savedBook) → sends the created book as response
+
+Final Response:
+Status → 201 CREATED
+Body → saved book
+
+3. GET ALL API
+return ResponseEntity.ok(service.getAllBooks());
+
+What happens here:
+
+ok() → sets status to 200
+passes list of books as body
+
+Final Response:
+
+Status → 200 OK
+Body → list of books
+4. GET BY ID API
+Step 1: Fetch book
+
+Book book = service.getBookById(id);
+Case 1: Book not found
+
+if (book == null) {
+    return ResponseEntity.notFound().build();
+}
+notFound() → sets status 404
+build() → no response body
+Final Response:
+
+Status → 404 NOT FOUND
+Body → empty
+Case 2: Book found
+
+return ResponseEntity.ok(book);
+ok() → 200
+sends book as response
+Final Response:
+
+Status → 200 OK
+Body → book
+Key Observation from This Code
+Different methods return different status codes:
+
+201 → when a book is created
+200 → when data is successfully returned
+404 → when data is not found
+This control over the response is handled by ResponseEntity.
+
+Key Points :
+From this example:
+
+ResponseEntity is used to return both:
+HTTP status code
+response data
+2.Each API decides its response using:
+
+status(...)
+ok(...)
+notFound()
+So, instead of returning only objects, the controller returns a structured HTTP response using ResponseEntity.
+
+#############  
