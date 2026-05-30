@@ -19,3 +19,32 @@ If we don't handle these cases properly, the API may return confusing errors or 
 So in this module, we will learn how to make our APIs production-ready.
 
 Click on "Next", To see various ways to make our APIs production-ready :
+
+#######################
+
+Exception Handling
+Before we learn how to handle exceptions in Spring Boot, let’s first understand what an exception actually is.
+An exception is an error that happens while the program is running.
+It usually occurs when something unexpected happens in the application.
+
+Imagine this request:
+
+GET /api/products/10
+But product ID 10 does not exist in the database.
+
+What should the API do?
+
+Should it crash?
+Should it return null?
+Or should it return a proper error message?
+In real APIs, we should return a clear error response.
+This is an exception scenario.
+
+Example:
+
+404 Not Found
+Product with ID 10 not found
+Handling these situations properly is called:
+Exception Handling
+
+In the next section, we will start with - Creating a Custom Exception.
