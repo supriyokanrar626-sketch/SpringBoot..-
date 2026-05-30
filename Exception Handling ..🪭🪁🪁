@@ -789,3 +789,9 @@ Check Your Understanding
 What is a Custom Exception?
 
 ANSWER = A user-defined error created for a specific situation in an application
+Explanation:
+A Custom Exception is an exception created by the developer to handle specific errors in an application. It is used when built-in Java exceptions 
+are not enough to describe a particular problem.
+
+###########################
+
