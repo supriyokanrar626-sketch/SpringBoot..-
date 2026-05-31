@@ -1338,3 +1338,9 @@ They indicate whether a request was successful or failed
 
 #############################
 
+Guess the Output
+Which status code indicates a successful request?
+
+Ans = 200
+Explanation:
+200 OK means the request was successful.
