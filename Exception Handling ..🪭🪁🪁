@@ -1237,3 +1237,9 @@ public class Product {
     }
 }
 ############ ----------#############################3
+
+
+Identify the Use
+What is ResponseEntity used for?
+
+answer = To return HTTP response with status and body
