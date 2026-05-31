@@ -1243,3 +1243,12 @@ Identify the Use
 What is ResponseEntity used for?
 
 answer = To return HTTP response with status and body
+Explanation:
+ResponseEntity is used to send a complete HTTP response from an API.
+It allows you to return:
+Response Body (data)
+HTTP Status Code (like 200, 201, 404)
+So instead of returning only data, it returns data + status together.
+
+################################
+
