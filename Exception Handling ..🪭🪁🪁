@@ -1256,3 +1256,9 @@ Guess the Output
 What is the return type of a controller method using ResponseEntity?
 
 answer = ResponseEntity<T>
+Explanation:
+When using ResponseEntity, the method returns a complete HTTP response, not just data.
+T represents the type of data (like Book, List<Product>, etc.).
+
+#########################3
+
