@@ -1262,3 +1262,70 @@ T represents the type of data (like Book, List<Product>, etc.).
 
 #########################3
 
+HTTP Status Codes
+You have already used HTTP status codes while working with ResponseEntity. Now, let’s understand them more clearly and see what they represent in API responses.
+
+HTTP status codes are numeric codes sent by the server in a response to indicate the result of a request.
+They help the client (browser/Postman/frontend) understand:
+
+whether the request was successful
+or if something went wrong
+Format
+Every HTTP response contains a status code:
+
+Status Code + Meaning
+Example:
+
+200 OK
+404 NOT FOUND
+Why Status Codes are Important
+
+Indicate success or failure of API calls
+Help frontend handle responses correctly
+Make APIs standard and predictable
+Categories of Status Codes
+Status codes are grouped into 5 categories:
+
+1xx – Informational
+Request received, processing continues
+Rarely used in APIs
+
+2xx – Success
+Indicates the request was successful.
+Common codes:
+
+200 OK → Request successful
+201 CREATED → Resource created successfully
+3xx – Redirection
+
+Request needs further action
+Used in URL redirection
+Example:
+
+302 Found
+4xx – Client Error
+Indicates an error from the client side.
+Common codes:
+
+400 BAD REQUEST → Invalid input
+401 UNAUTHORIZED → Authentication required
+404 NOT FOUND → Resource not found
+
+5xx – Server Error
+Indicates server-side failure. Common codes:
+
+500 INTERNAL SERVER ERROR → Server crashed or failed
+503 SERVICE UNAVAILABLE → Server not available
+Key Point
+
+HTTP status codes describe the result of a request
+They are grouped into:
+1xx → Informational
+2xx → Success
+3xx → Redirection
+4xx → Client Error
+5xx → Server Error
+They are used with ResponseEntity to send proper API responses
+
+##################################### 
+
