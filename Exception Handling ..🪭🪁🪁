@@ -1252,3 +1252,7 @@ So instead of returning only data, it returns data + status together.
 
 ################################
 
+Guess the Output
+What is the return type of a controller method using ResponseEntity?
+
+answer = ResponseEntity<T>
