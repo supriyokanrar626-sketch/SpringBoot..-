@@ -1332,4 +1332,9 @@ They are used with ResponseEntity to send proper API responses
 Guess the Output
 What do HTTP status codes represent?
 
-Answer = 
+Answer = Result of an HTTP request
+Explanation:
+They indicate whether a request was successful or failed
+
+#############################
+
