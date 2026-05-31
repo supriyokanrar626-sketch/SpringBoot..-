@@ -1116,3 +1116,62 @@ Body → empty
 
 #####################  ProductController.java ###############
 
+package com.example.demo.controller;
+
+import com.example.demo.model.Product;
+import com.example.demo.service.ProductService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class ProductController {
+
+    @Autowired
+    private ProductService service;
+
+    // CREATE
+    @PostMapping("/product")
+    public ResponseEntity<Product> addProduct(@RequestBody Product product) {
+
+        // call service to save product
+        Product savedProduct = service.addProduct(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
+        // return response with 201 CREATED and saved product
+
+    }
+
+    // READ ALL
+    @GetMapping("/products")
+    public ResponseEntity<List<Product>> getAllProducts() {
+
+        // call service to get all products
+          return ResponseEntity.ok(service.getAllProducts());
+        // return response with 200 OK and list of products
+
+    }
+
+    // READ BY ID
+    @GetMapping("/product/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable int id) {
+
+        // call service to get product by id
+        Product product = service.getProductById(id);
+
+        if (product == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(product);
+        // if product is null → return 404 NOT FOUND
+
+        // else return 200 OK with product
+
+    }
+}
+
+##################### ProductService.java #############
