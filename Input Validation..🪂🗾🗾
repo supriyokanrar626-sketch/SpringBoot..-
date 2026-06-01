@@ -1,1 +1,37 @@
+Input Validation in Spring Boot
+Input validation is used to ensure that the data sent by the client is correct and follows defined rules before processing.
 
+For example:
+
+Required fields should not be empty
+Text should have a minimum/maximum length
+Email should be in correct format
+Why Validation is Needed
+
+Prevents invalid or incomplete data
+Improves API reliability
+Avoids errors during processing
+Validation Annotations
+Spring Boot provides built-in annotations for validation:
+
+1. @Valid
+Used in controller to trigger validation
+
+@PostMapping("/user")
+public ResponseEntity<User> addUser(@Valid @RequestBody User user)
+2. @NotNull
+Field must not be null
+
+@NotNull
+private String name;
+3. @Size
+Defines minimum and maximum length
+
+@Size(min = 3, max = 10)
+private String name;
+4. @Email
+Validates email format
+
+@Email
+private String email;
+Click on "NEXT", to understand this properly through an simple example
