@@ -178,7 +178,7 @@ public class UserController {
     }
 }
 
-#####################    User.java ##############
+#####################    User.java   ##############
 
 package com.example.demo.model;
 
@@ -287,4 +287,4 @@ public class UserService {
     }
 }
 
-##########################################3
+#######################################
