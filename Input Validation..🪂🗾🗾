@@ -39,3 +39,107 @@ Click on "NEXT", to understand this properly through an simple example
 
 #######################
 
+Demo - Input validations in action
+Let's understand - How Validation Works in This API?
+
+1. Validation Rules Defined in Model
+In User.java, validation is applied directly on fields:
+
+@NotNull(message = "Name cannot be null")
+@Size(min = 3, max = 10, message = "Name must be between 3 and 10 characters")
+private String name;
+
+@NotNull(message = "Email cannot be null")
+@Email(message = "Invalid email format")
+private String email;
+This means:
+
+name must be present and between 3–10 characters
+email must be present and in valid format
+2. Validation Triggered in Controller
+
+public ResponseEntity<User> addUser(@Valid @RequestBody User user)
+@Valid is the key here.
+
+It tells Spring Boot:
+“Before executing this method, validate the incoming request body.”
+
+What Happens Internally
+When a request is sent:
+
+Case 1: Valid Input
+
+{
+  "id": 1,
+  "name": "Alice",
+  "email": "alice@gmail.com"
+}
+Flow:
+
+Request reaches controller
+@Valid checks all rules
+All validations pass
+Method executes
+Data is stored
+Response returned through:
+ResponseEntity.status(HttpStatus.CREATED).body(user)
+Final Result:
+
+201 CREATED
+User saved successfully
+Case 2: Invalid Input
+
+{
+  "id": 2,
+  "name": "Al",
+  "email": "alice@gmail.com"
+}
+Flow:
+
+Request reaches controller
+@Valid starts validation
+Rules fail
+Method is NOT executed
+Spring automatically returns error
+Final Result:
+
+400 BAD REQUEST
+Error messages returned in terminal- [Name must be between 3 and 10 characters]
+Case 3: Invalid Email
+
+{
+  "id": 3,
+  "name": "John",
+  "email": "wrong-email"
+}
+Flow:
+
+Request reaches controller
+@NotNull starts validation
+Rules fail
+Method is NOT executed
+Spring automatically returns error
+Final Result:
+
+400 BAD REQUEST
+Error messages returned in terminal- [Invalid email format]
+Case 4: Missing Fields
+
+{
+  "id": 4
+}
+Flow:
+
+Request reaches controller
+@Valid starts validation
+Rules fail
+Method is NOT executed
+Spring automatically returns error
+Final Result:
+
+400 BAD REQUEST
+Error messages returned in terminal-
+[Email cannot be null]
+[Name cannot be null]
+
+#########################################
