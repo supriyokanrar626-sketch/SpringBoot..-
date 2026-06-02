@@ -495,3 +495,60 @@ public class ProductService {
 }
 
 ####################   
+
+Answer In Short
+Scenario
+
+You are testing a Student Registration API.
+The API validates input using:
+
+@NotNull
+@Size
+@Email
+Rules:
+
+Valid data → 201 CREATED
+Invalid data → 400 BAD REQUEST
+Each student has:
+
+id
+name (min 3 characters)
+course (min 2 characters)
+email (valid format)
+Answer below Questions
+
+You send:
+{
+  "id": 1,
+  "name": "Rahul",
+  "course": "CS",
+  "email": "rahul@gmail.com"
+}
+What will be the HTTP status code and response/error?
+
+You send:
+{
+  "id": 2,
+  "name": "Ra",
+  "course": "CS",
+  "email": "rahul@gmail.com"
+}
+What will be the HTTP status code and response/error?
+
+You send:
+{
+  "id": 3,
+  "name": "Rahul",
+  "course": "C",
+  "email": "rahul@gmail.com"
+}
+What will be the HTTP status code and response/error?
+
+You send:
+{
+  "id": 4,
+  "name": "Rahul",
+  "course": "CS",
+  "email": "aalicealexa"
+}
+What will be the HTTP status code and response/error?
