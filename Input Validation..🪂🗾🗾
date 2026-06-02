@@ -559,3 +559,13 @@ ANS = 1. 201 created successfully
 2. 400 BAD REQUEST  name must be in 3 character
 3. 400 BAD REQUEST  course must be in 2 character
 4. 400 BAD REQUEST email wrong format
+
+#####################################3
+
+Identify the Role
+What is the role of @Valid in a Spring Boot controller?
+
+Answer  =  It triggers validation on the request body
+Explanation:
+You're Right!
+@Valid ensures that all validation annotations like @NotNull, @Size, and @Email are checked before processing the request.
