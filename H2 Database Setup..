@@ -1,6 +1,5 @@
 Setting Up The Database (H2)...
 
-
 In the previous demo, you:
 
 Added a book using POST
@@ -14,9 +13,10 @@ Which database were we using?
 The Database We Used: H2
 
 In our previous example, we were using a database called H2.
-H2 is:
 
+H2 is:
 A lightweight, high-performance database management system written in Java
+
 Very easy to set up
 Runs inside your Spring Boot application
 Perfect for learning and testing
