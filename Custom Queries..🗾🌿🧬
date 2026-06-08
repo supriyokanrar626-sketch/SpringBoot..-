@@ -210,4 +210,43 @@ public class Product {
     public void setSupplierEmail(String supplierEmail) { this.supplierEmail = supplierEmail; }
 }
 
-################3  
+################3  ProductRepository.java ###########
+
+package com.example.demo.repository;
+
+import com.example.demo.model.Product;
+import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Repository
+public class ProductRepository {
+
+    private List<Product> products = new ArrayList<>();
+
+    public Product save(Product product) {
+        products.add(product);
+        return product;
+    }
+
+    public List<Product> findAll() {
+        return products;
+    }
+
+    // Finder Methods (custom)
+    public List<Product> findByName(String name) {
+        return products.stream()
+                .filter(p -> p.getName().equalsIgnoreCase(name))
+                .collect(Collectors.toList());
+    }
+
+    public List<Product> findByBrand(String brand) {
+        return products.stream()
+                .filter(p -> p.getBrand().equalsIgnoreCase(brand))
+                .collect(Collectors.toList());
+    }
+}
+
+############   
