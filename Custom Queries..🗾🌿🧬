@@ -116,4 +116,51 @@ Search data
 Filter data
 Retrieve specific records
 
-###################3  
+###################3  ProductController.java #########
+
+package com.example.demo.controller;
+
+import com.example.demo.model.Product;
+import com.example.demo.service.ProductService;
+
+import jakarta.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class ProductController {
+
+    @Autowired
+    private ProductService service;
+
+    // CREATE
+    @PostMapping("/product")
+    public ResponseEntity<Product> addProduct(@Valid @RequestBody Product product) {
+        Product saved = service.addProduct(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+    }
+
+    // READ ALL
+    @GetMapping("/products")
+    public ResponseEntity<List<Product>> getAllProducts() {
+        return ResponseEntity.ok(service.getAllProducts());
+    }
+
+    // FIND BY NAME
+    @GetMapping("/products/name/{name}")
+    public ResponseEntity<List<Product>> getByName(@PathVariable String name) {
+        return ResponseEntity.ok(service.getByName(name));
+    }
+
+    // FIND BY BRAND
+    @GetMapping("/products/brand/{brand}")
+    public ResponseEntity<List<Product>> getByBrand(@PathVariable String brand) {
+        return ResponseEntity.ok(service.getByBrand(brand));
+    }
+}
+#############    
