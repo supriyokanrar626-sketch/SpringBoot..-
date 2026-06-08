@@ -494,4 +494,7 @@ public class BookService {
     }
 }
 
-############   
+############   ##################
+
+Check Your Understanding
+Which keyword in a finder method is used to ignore case sensitivity?
