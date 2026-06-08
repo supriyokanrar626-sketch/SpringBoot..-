@@ -1,1 +1,42 @@
+Finder Methods in Spring Data JPA
+Till now, you have used JpaRepository to perform basic operations like:
 
+save() → Create
+findAll() → Read
+findById() → Read by ID
+delete() → Delete
+Limitation
+What if you want to:
+
+Find products by name
+Find users by email
+Get products with price greater than a value
+These cannot be done using only built-in methods.
+
+Solution: Finder Methods
+Spring Data JPA allows you to create custom queries just by writing method names.
+
+No SQL required
+No manual query writing
+How it works
+You define a method in the repository like:
+
+List<Product> findByName(String name);
+Spring automatically understands:
+
+findBy → fetch data
+Name → filter field
+Example
+
+findByName(String name)
+findByBrand(String brand)
+findByPriceGreaterThan(double price)
+These methods are automatically converted into database queries.
+
+Why this is powerful
+
+No need to write SQL
+Very easy to use
+Saves development time
+Widely used in real-world projects
+Click on "NEXT" to see how to use Finder Methods used in a real API
