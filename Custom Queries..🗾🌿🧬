@@ -1,4 +1,5 @@
-Finder Methods in Spring Data JPA
+Finder Methods in Spring Data JPA..
+
 Till now, you have used JpaRepository to perform basic operations like:
 
 save() → Create
@@ -40,3 +41,79 @@ Very easy to use
 Saves development time
 Widely used in real-world projects
 Click on "NEXT" to see how to use Finder Methods used in a real API
+
+###########################3
+
+Demo - Finder Methods in Product API
+Run the code, API tester will get open. Go to POST endpoint and add below data :
+
+{
+  "id": 1,
+  "name": "Laptop",
+  "brand": "Dell",
+  "supplierEmail": "test@gmail.com"
+}
+Then test GET Requests using:
+
+GET /products
+GET /products/name/Laptop
+GET /products/brand/Dell
+Observe the Response data
+
+As you can see in this API, we are retrieving products not just by ID, but based on specific fields like name and brand.
+These methods used to search/filter data are called Finder Methods.
+
+---'
+
+Where Finder Methods are written
+Look at your ProductRepository:
+
+public List<Product> findByName(String name) {
+    return products.stream()
+            .filter(p -> p.getName().equalsIgnoreCase(name))
+            .collect(Collectors.toList());
+}
+
+public List<Product> findByBrand(String brand) {
+    return products.stream()
+            .filter(p -> p.getBrand().equalsIgnoreCase(brand))
+            .collect(Collectors.toList());
+}
+Here:
+
+findByName() → finds products by name
+findByBrand() → finds products by brand
+These are your custom finder methods
+
+How it works internally
+
+When a request comes like:
+
+GET /products/name/Laptop
+Step-by-step flow:
+
+Controller receives request
+Calls service:
+service.getByName(name)
+Service calls repository:
+repository.findByName(name)
+Repository filters data using:
+stream().filter(...)
+Matching products are returned
+Controller usage
+
+@GetMapping("/products/name/{name}")
+public ResponseEntity<List<Product>> getByName(@PathVariable String name) {
+    return ResponseEntity.ok(service.getByName(name));
+}
+Same for brand:
+
+@GetMapping("/products/brand/{brand}")
+Key Understanding
+Finder methods are used to:
+
+Search data
+Filter data
+Retrieve specific records
+
+###################3  
