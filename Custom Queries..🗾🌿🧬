@@ -458,3 +458,40 @@ public class Book {
     public String getIsbn() { return isbn; }
     public void setIsbn(String isbn) { this.isbn = isbn; }
 }
+
+##############   BookService.java ##########
+
+package com.example.demo.service;
+
+import com.example.demo.model.Book;
+import com.example.demo.repository.BookRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class BookService {
+
+    @Autowired
+    private BookRepository repository;
+
+    public Book addBook(Book book) {
+        return repository.save(book);
+    }
+
+    public List<Book> getAllBooks() {
+        return repository.findAll();
+    }
+
+    public List<Book> getByTitle(String title) {
+        return repository.findByTitle(title);
+    }
+
+    public List<Book> getByAuthor(String author) {
+        return repository.findByAuthor(author);
+    }
+}
+
+############   
