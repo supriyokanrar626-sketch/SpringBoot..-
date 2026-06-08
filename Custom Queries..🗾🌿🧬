@@ -327,3 +327,102 @@ Matching should be case-insensitive
 
 Return a list of books whose author matches the given input
 Matching should be case-insensitive
+
+###################    BookRepository.java  #########
+
+package com.example.demo.repository;
+
+import java.util.ArrayList;
+import com.example.demo.model.Book;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+
+@Repository
+public class BookRepository {
+
+    // TODO: Initialize storage (e.g., List<Book>)
+    private List<Book> books = new ArrayList<>();
+
+    // Save a book
+    public Book save(Book book) {
+        // TODO: add book to storage
+        books.add(book);
+        return book;
+        // return the saved book
+    }
+
+    // Return all books
+    public List<Book> findAll() {
+        // TODO: return all books from storage
+        return books;
+    }
+
+    // Find books by title (case-insensitive)
+    public List<Book> findByTitle(String title) {
+        // TODO: implement filtering logic
+        return books.stream()
+                .filter(b -> b.getTitle().equalsIgnoreCase(title))
+                .collect(Collectors.toList());
+    }
+
+    // Find books by author (case-insensitive)
+    public List<Book> findByAuthor(String author) {
+        // TODO: implement filtering logic
+        return books.stream()
+                .filter(b -> b.getAuthor().equalsIgnoreCase(author))
+                .collect(Collectors.toList());
+    }
+
+    
+}
+
+############   BookController.java #########
+
+package com.example.demo.controller;
+
+import com.example.demo.model.Book;
+import com.example.demo.service.BookService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class BookController {
+
+    @Autowired
+    private BookService service;
+
+    // CREATE
+    @PostMapping("/book")
+    public ResponseEntity<Book> addBook(@RequestBody Book book) {
+        Book saved = service.addBook(book);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+    }
+
+    // READ ALL
+    @GetMapping("/books")
+    public ResponseEntity<List<Book>> getAllBooks() {
+        return ResponseEntity.ok(service.getAllBooks());
+    }
+
+    // FIND BY TITLE
+    @GetMapping("/books/title/{title}")
+    public ResponseEntity<List<Book>> getByTitle(@PathVariable String title) {
+        return ResponseEntity.ok(service.getByTitle(title));
+    }
+
+    // FIND BY AUTHOR
+    @GetMapping("/books/author/{author}")
+    public ResponseEntity<List<Book>> getByAuthor(@PathVariable String author) {
+        return ResponseEntity.ok(service.getByAuthor(author));
+    }
+}
+
+##################   Book.java
