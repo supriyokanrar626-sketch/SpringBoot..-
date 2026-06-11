@@ -23,7 +23,7 @@ Click on "Next", To see various ways to make our APIs production-ready :
 
 #######################
 
-Exception Handling
+Exception Handling..
 Before we learn how to handle exceptions in Spring Boot, let’s first understand what an exception actually is.
 An exception is an error that happens while the program is running.
 It usually occurs when something unexpected happens in the application.
@@ -42,7 +42,6 @@ In real APIs, we should return a clear error response.
 This is an exception scenario.
 
 Example:
-
 404 Not Found
 Product with ID 10 not found
 Handling these situations properly is called:
